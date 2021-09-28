@@ -1,0 +1,99 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-speech"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="signup.cin" class="form-control" placeholder="CIN" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="signup.nom" class="form-control" placeholder="name" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="signup.prenom" class="form-control" placeholder="lastname" autocomplete="username" required>
+                </div>
+               
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="signup.username" class="form-control" placeholder="Username" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password"[(ngModel)]="signup.password" class="form-control" placeholder="password" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password"[(ngModel)]="signup.confirmPassword" class="form-control" placeholder="password" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-phone"></i></span>
+                  </div>
+                  <input type="test"[(ngModel)]="signup.phoneNumber" class="form-control" placeholder="phoneNumber" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-calendar"></i></span>
+                  </div>
+                  <input type="date"[(ngModel)]="signup.birthday" class="form-control" placeholder="birthday" autocomplete="username" required>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input type="text"[(ngModel)]="signup.email" class="form-control" placeholder="Email" autocomplete="email" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-home"></i></span>
+                  </div>
+                  <input type="test"[(ngModel)]="signup.address" class="form-control" placeholder="address" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-list"></i></span>
+                  </div>
+                  <select [(ngModel)]="signup.type"(ngModelChange)="onChange($event)">
+                    <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
+                </select>        
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-list"></i></span>
+                </div>
+                <select [(ngModel)]="signup.equipe"(ngModelChange)="onChangeEquipe($event)">
+                  <option ></option>
+                  <option *ngFor="let e of equipe" value="{{e.id}}">{{e.nomEquipe}}</option>
+              </select>        
+            </div>  
+                <button type="button"(click)="regitre()" class="btn btn-block btn-success">Create Account</button>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
