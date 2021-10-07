@@ -43,6 +43,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
+import { AddEquipeComponent } from './equipe/add-equipe/add-equipe.component';
+import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.component';
 
 @NgModule({
   imports: [
@@ -62,14 +64,16 @@ import { FormsModule } from '@angular/forms';
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule
-  ],
+    ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddEquipeComponent,
+    UpdateEquipeComponent
   ],
   providers: [
     {

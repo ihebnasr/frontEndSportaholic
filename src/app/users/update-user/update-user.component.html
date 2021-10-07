@@ -1,0 +1,77 @@
+
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile  :  </h1>
+            <h2>{{user.nom}}  {{user.prenom}}</h2>
+
+        </div>
+
+        <!-- Navbar -->
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src= "{{user.image}}"class="img-avatar" alt="image profil" width="100" height="100">
+
+            <div class="name">
+                {{user.name}}
+            </div>
+            <div class="job">
+                {{user.prenom}}
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+          
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+     <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>CIN</td>
+                            <td>:</td>
+                            <td>{{user.cin}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>{{user.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>:</td>
+                            <td>{{user.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>phone Number</td>
+                            <td>:</td>
+                            <td>{{user.numTel}}</td>
+                        </tr>
+                        <tr>
+                            <td>equipe</td>
+                            <td>:</td>
+                            <td>{{user.equipe.nomEquipe}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     </div>
+    <!-- End -->

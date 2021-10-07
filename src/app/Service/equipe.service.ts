@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EquipeModel } from '../modele/Equipe.model';
 const URL = 'http://localhost:8080/equipe/';
@@ -7,6 +7,8 @@ const URL = 'http://localhost:8080/equipe/';
   providedIn: 'root'
 })
 export class EquipeService {
+  httpOption = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': 'Bearer '+localStorage.getItem('token')})}
 
   constructor(private httpClient :HttpClient) { }
   allEquipe(){
@@ -14,5 +16,13 @@ export class EquipeService {
   }
   getEquipe(id:any){
     return this.httpClient.get<EquipeModel>(URL+`${id}`);
+  }
+  
+  getNbrEquipe(){
+    return this.httpClient.get(URL+'nbrEquipe',this.httpOption)
+  }
+
+  addEquipe(equipe:any){
+    return this.httpClient.post(URL+'new',equipe,this.httpOptions)
   }
 }

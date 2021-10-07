@@ -12,7 +12,9 @@ export class SignUpModel{
     email:any;
     address:any;
     type:any;
-    equipe:EquipeModel;
+    equipe=new EquipeModel();
+    image:any;
+    imageCin:any;
     constructor(){}
 
 
@@ -28,7 +30,7 @@ export class SignUpModel{
         if(SignUpModel.email=""){return {isValid:false,raison:"email obligatoire"}}
         if(SignUpModel.address=""){return {isValid:false,raison:"address obligatoire"}}
         if(SignUpModel.type=""){return {isValid:false,raison:"type obligatoire"}}
-        if(SignUpModel.equipe=""){return {isValid:false,raison:"equipe obligatoire"}}
+        //if(SignUpModel.equipe={}){return {isValid:false,raison:"equipe obligatoire"}}
 
 
     }

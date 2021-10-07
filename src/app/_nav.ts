@@ -12,12 +12,32 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
+    name: 'Users'
+  },
+  {
+    name: 'user enable',
+    url: '/users/userEnable',
+    icon: 'icon-user'
+
+  },
+  {
+    title: true,
+    name: 'equipes'
+  },
+  {
+    name: 'list equipe',
+    url: '/equipes/allequipe',
+    icon: 'icon-user'
+
+  },
+  {
+    title: true,
     name: 'Theme'
   },
   {
     name: 'Colors',
     url: '/theme/colors',
-    icon: 'icon-drop'
+    icon: 'icon-drop',
   },
   {
     name: 'Typography',

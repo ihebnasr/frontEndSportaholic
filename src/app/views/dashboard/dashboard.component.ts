@@ -1,12 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { DashboardService } from '../../Service/dashboard.service';
+import { EquipeService } from '../../Service/equipe.service';
+import { StadeService } from '../../Service/stade.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
+  nbrUserEnabled:any;
+  nbrUserNotEnabled:any;
+  nbrEquipe:any
+  nbrStade:any;
+  stat:Array<any>=[]
+  s:Array<any>=[]
+  constructor(private stadeService :StadeService, private dashboard:DashboardService , private equipeService :EquipeService ,private router: Router){}
+  ngOnInit(): void {
+    // generate random values for mainChart
+    for (let i = 0; i <= this.mainChartElements; i++) {
+      this.mainChartData1.push(this.random(50, 200));
+      this.mainChartData2.push(this.random(80, 100));
+      this.mainChartData3.push(65);
+    }
+    this.getNbrUserEnable();
+    this.getNbrUserNotEnabled();
+    this.getnbrEquipe();
+    this.getNbrStade();
+    this.getStatistique();
+  }
+  getStatistique(){
+    return this.dashboard.getStat().subscribe(
+      (res:any[])=>{
+        console.log(res)
+        this.stat=res
+        this.stat.forEach(element => {this.s=element
+          
+        })
+        console.log(this.s)
+      }
+    )
+  }
+  getNbrStade(){
+    return this.stadeService.getNbrStade().subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.nbrStade=res;
+      }
+    )
+  }
+  getnbrEquipe(){
+    return this.equipeService.getNbrEquipe().subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.nbrEquipe=res;
+    })
+  }
+  getNbrUserEnable(){
+    return this.dashboard.getNbrUser().subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.nbrUserEnabled=res;
+      }
+    )
+  }
+  getNbrUserNotEnabled(){
+    return this.dashboard.getNbrUserNotEnabled().subscribe(
+      (result:any)=>{
+        console.log(result);
+        this.nbrUserNotEnabled=result;
+      }
+    )
+  }
   radioModel: string = 'Month';
 
   // lineChart1
@@ -377,12 +444,5 @@ export class DashboardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  ngOnInit(): void {
-    // generate random values for mainChart
-    for (let i = 0; i <= this.mainChartElements; i++) {
-      this.mainChartData1.push(this.random(50, 200));
-      this.mainChartData2.push(this.random(80, 100));
-      this.mainChartData3.push(65);
-    }
-  }
+ 
 }

@@ -1,4 +1,3 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EquipeModel } from '../../modele/Equipe.model';
@@ -15,7 +14,8 @@ export class RegisterComponent {
   equipe:Array<EquipeModel>=[];
   selected=[];
   types=["abonne","public","jornalisme","arbitre"];
-
+  image:any;
+  imageCin:any
   constructor(private loginService:LoginService, private router: Router, private equipeService:EquipeService ) { }
   ngOnInit(): void {
     this.getEquipe();
@@ -30,13 +30,35 @@ export class RegisterComponent {
     );
   }
 
-  onChangeEquipe(newValue){
+  onChangeEquipe(newValue:number){
     console.log(newValue);
     this.signup.equipe.id = newValue;
   }
   onChange(newValue) {
     console.log(newValue);
     this.signup.type = newValue;
+}
+uploadImage(image){
+  let reader = new FileReader();
+  if(image.files.length!==0) {
+    reader.readAsDataURL(image.files[0]);
+    reader.onload = e => {
+      this.image = reader.result;
+      this.signup.image=btoa(this.image);
+      //this.testImage=atob(this.cv.image)
+    }
+  }
+}
+uploadImageCin(imageCin){
+  let reader = new FileReader();
+  if(imageCin.files.length!==0) {
+    reader.readAsDataURL(imageCin.files[0]);
+    reader.onload = e => {
+      this.imageCin = reader.result;
+      this.signup.imageCin=btoa(this.imageCin);
+      //this.testImage=atob(this.cv.image)
+    }
+  }
 }
 regitre(){
  
@@ -53,7 +75,9 @@ regitre(){
       }
   );
   }
+  console.log(this.signup);
 }
+
 getEquipeUser(){
   this.equipe.forEach(element => {
     this.equipeService.getEquipe(element).subscribe(
