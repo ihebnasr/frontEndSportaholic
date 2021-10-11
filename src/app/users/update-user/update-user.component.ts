@@ -11,24 +11,27 @@ import { UserService } from '../../Service/user.service';
 export class UpdateUserComponent implements OnInit {
 
   constructor(private userService:UserService,private route: ActivatedRoute   ,private router:Router) { }
-  user:any={};
+  user: any= {};
+
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.username)
     console.log("hello")
   }
 
-  getUser(username){
+  getUser(username) {
     this.userService.getUser(username).subscribe(
-      (res:any)=>{
-        console.log(res)
-        this.user=res
-        this.user.image=atob(this.user.image)
+      (res: any) => {
+        console.log(res);
+        this.user = res;
+        this.user.image = atob(this.user.image);
+        this.user.equipe.logo = atob(this.user.equipe.logo);
       } ,
       error => {
         console.log(error);
       }
       );
   }
+
 
 }
 

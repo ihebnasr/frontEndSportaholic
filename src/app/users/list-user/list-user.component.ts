@@ -18,6 +18,10 @@ export class ListUserComponent implements OnInit {
     return this.userService.getUserEnable().subscribe(
       (res:any)=>{
         this.listUserEnable=res;
+        this.listUserEnable.forEach(element => {
+          element.image=atob(element.image)
+
+        });
         console.log(this.listUserEnable)
       }
     )

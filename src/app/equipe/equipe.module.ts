@@ -11,7 +11,8 @@ import { ListEquipeComponent } from './list-equipe/list-equipe.component';
     EquipeRoutingModule
   ],
   declarations: [
-    ListEquipeComponent
+    ListEquipeComponent,
+    
   ]
 })
 export class EquipeModule { }

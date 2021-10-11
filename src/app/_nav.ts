@@ -21,6 +21,11 @@ export const navItems: INavData[] = [
 
   },
   {
+    name: 'user not enable',
+    url: '/users/userNotEnable',
+    icon: 'icon-user'
+  },
+  {
     title: true,
     name: 'equipes'
   },

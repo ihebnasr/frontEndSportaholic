@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListUserComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import {ListUserNotEnableComponent} from './list-user-not-enable/list-user-not-enable.component';
 
 
 const routes: Routes = [
@@ -28,14 +29,19 @@ const routes: Routes = [
           data: {
             title: 'update users'
           }
+          },
+        {
+          path: 'userNotEnable',
+          component: ListUserNotEnableComponent,
+          data: {
+            title: 'list users not enable'
+        }
         }
       ]
     }
   ];
-  
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
   export class UserRoutingModule {}
-  

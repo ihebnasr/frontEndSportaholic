@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  nbrUserEnabled:any;
-  nbrUserNotEnabled:any;
-  nbrEquipe:any
-  nbrStade:any;
-  stat:Array<any>=[]
-  s:Array<any>=[]
-  constructor(private stadeService :StadeService, private dashboard:DashboardService , private equipeService :EquipeService ,private router: Router){}
+  nbrUserEnabled: any;
+  nbrUserNotEnabled: any;
+  nbrEquipe: any;
+  nbrStade: any;
+  stat: Array<any> = [];
+  nbrUserEquipe: Array<number> = [];
+  constructor(private stadeService: StadeService, private dashboard: DashboardService , private equipeService: EquipeService, private router: Router) {}
   ngOnInit(): void {
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
-      this.mainChartData1.push(this.random(50, 200));
+      this.mainChartData1.push();
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
     }
@@ -30,34 +30,43 @@ export class DashboardComponent implements OnInit {
     this.getnbrEquipe();
     this.getNbrStade();
     this.getStatistique();
+    this.getNbrUserEquipe();
   }
-  getStatistique(){
+  getNbrUserEquipe() {
+    return this.dashboard.getStatNbrUser().subscribe(
+      (res: any ) => {
+        console.log(res);
+        this.nbrUserEquipe = res;
+      }
+    )
+  }
+  getnbrEquipe() {
+  return this.equipeService.getNbrEquipe().subscribe(
+    (res: any) => {
+    console.log(res);
+    this.nbrEquipe = res;
+    }
+  );
+  }
+
+  getStatistique() {
     return this.dashboard.getStat().subscribe(
-      (res:any[])=>{
-        console.log(res)
-        this.stat=res
-        this.stat.forEach(element => {this.s=element
-          
-        })
-        console.log(this.s)
-      }
-    )
-  }
-  getNbrStade(){
-    return this.stadeService.getNbrStade().subscribe(
-      (res:any)=>{
+      (res: any[]) => {
         console.log(res);
-        this.nbrStade=res;
+        this.stat = res;
+       }
+      );
+  }
+
+  getNbrStade () {
+    return this.stadeService.getNbrStade ().subscribe (
+      (res: any) => {
+        console.log (res);
+        this.nbrStade = res;
       }
-    )
+    );
   }
-  getnbrEquipe(){
-    return this.equipeService.getNbrEquipe().subscribe(
-      (res:any)=>{
-        console.log(res);
-        this.nbrEquipe=res;
-    })
-  }
+
   getNbrUserEnable(){
     return this.dashboard.getNbrUser().subscribe(
       (res:any)=>{
@@ -66,11 +75,11 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-  getNbrUserNotEnabled(){
+  getNbrUserNotEnabled() {
     return this.dashboard.getNbrUserNotEnabled().subscribe(
-      (result:any)=>{
+      (result: any) => {
         console.log(result);
-        this.nbrUserNotEnabled=result;
+        this.nbrUserNotEnabled = result;
       }
     )
   }
@@ -278,7 +287,7 @@ export class DashboardComponent implements OnInit {
 
   // mainChart
 
-  public mainChartElements = 27;
+  public mainChartElements = this.stat.length;
   public mainChartData1: Array<number> = [];
   public mainChartData2: Array<number> = [];
   public mainChartData3: Array<number> = [];
@@ -287,14 +296,6 @@ export class DashboardComponent implements OnInit {
     {
       data: this.mainChartData1,
       label: 'Current'
-    },
-    {
-      data: this.mainChartData2,
-      label: 'Previous'
-    },
-    {
-      data: this.mainChartData3,
-      label: 'BEP'
     }
   ];
   /* tslint:disable:max-line-length */
@@ -444,5 +445,5 @@ export class DashboardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
- 
+
 }

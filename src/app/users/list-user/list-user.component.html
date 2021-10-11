@@ -2,7 +2,8 @@
     <thead class="thead-light">
       <tr>
       <!--  <th class="text-center"><i class="icon-people"></i></th>-->
-        <th>cin</th>
+      <th class="text-center"><i class="icon-people"></i></th>  
+      <th>cin</th>
         <th class="text-center">nom</th>
         <th>prenom</th>
         <th class="text-center">username</th>
@@ -13,12 +14,12 @@
     </thead>
     <tbody>
       <tr *ngFor= "let user of listUserEnable ">
-       <!-- <td class="text-center">
+        <td class="text-center">
           <div class="avatar">
-            <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+            <img src="{{user.image}}" class="img-avatar" >
             <span class="avatar-status badge-success"></span>
           </div>
-        </td>-->
+        </td>
         <td>
           <div>{{user.cin}}</div>
          <!--<div class="small text-muted">
