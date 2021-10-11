@@ -9,7 +9,11 @@ import { EquipeService } from '../../Service/equipe.service';
   styleUrls: ['./add-equipe.component.scss']
 })
 export class AddEquipeComponent implements OnInit {
-  equipe=new EquipeModel();
+  equipe:{
+    nomEquipe:any;
+    abrviation:any;
+    logo:any;
+  }
   image:any
   constructor(private equipesService:EquipeService ,private router:Router) { }
 
@@ -23,7 +27,6 @@ export class AddEquipeComponent implements OnInit {
       reader.onload = e => {
         this.image = reader.result;
         this.equipe.logo=btoa(this.image);
-        console.log(this.equipe.logo)
         //this.testImage=atob(this.cv.image)
       }
     }
@@ -36,12 +39,12 @@ export class AddEquipeComponent implements OnInit {
         (err:any)=>console.log(err),
        ()=> {
           this.router.navigate(['/equipes/allequipe']);
-  
+
         }
     );
         console.log(this.equipe);
-    
+
       }
 
-  
+
 }

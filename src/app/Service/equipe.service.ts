@@ -7,25 +7,26 @@ const URL = 'http://localhost:8080/equipe/';
   providedIn: 'root'
 })
 export class EquipeService {
-  httpOption = {headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})};
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')})};
+  httpOption = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': 'Bearer '+localStorage.getItem('token')})}
 
-  constructor(private httpClient: HttpClient) { }
-  allEquipe() {
-    return this.httpClient.get(URL + 'getall');
+  constructor(private httpClient :HttpClient) { }
+  allEquipe(){
+    return this.httpClient.get(URL+"getall");
   }
-  getEquipe(id: any) {
-    return this.httpClient.get<EquipeModel>(URL + `${id}`);
-  }
-
-  getNbrEquipe() {
-    return this.httpClient.get(URL + 'nbrEquipe', this.httpOption);
+  getEquipe(id:any){
+    return this.httpClient.get<EquipeModel>(URL+`${id}`);
   }
 
-  addEquipe(equipe: any) {
-    return this.httpClient.post(URL + 'new', equipe, this.httpOptions);
+  getNbrEquipe(){
+    return this.httpClient.get(URL+'nbrEquipe',this.httpOption);
   }
-  updateEquipe( id: any, equipe: any) {
-    return this.httpClient.put(URL + 'update/' + `${id}`, equipe, this.httpOptions);
+
+  addEquipe(equipe:any){
+    return this.httpClient.post(URL+'new',equipe,this.httpOptions);
   }
+  getUserNotEnable() {
+    return this.httpClient.get(URL + 'NotEnable', this.httpOptions);
+  }
+
 }

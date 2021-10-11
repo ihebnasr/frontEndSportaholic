@@ -10,6 +10,7 @@ export const navItems: INavData[] = [
       text: 'NEW'
     }
   },
+
   {
     title: true,
     name: 'Users'

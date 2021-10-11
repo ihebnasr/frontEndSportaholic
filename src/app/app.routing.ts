@@ -9,6 +9,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import {HomeComponent} from './home/home.component';
 
 export const routes: Routes = [
   {
@@ -45,10 +46,17 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    data: {
+      title: 'Home'
+    }
+  },
+  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Home'
+      title: 'dashboard'
     },
     children: [
       {
@@ -67,6 +75,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
+
       {
         path: 'icons',
         loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
@@ -84,12 +93,12 @@ export const routes: Routes = [
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
       },
       {
-        path:'users',
-        loadChildren :() =>import('./users/user.module').then(m=>m.UserModule)
+        path: 'users',
+        loadChildren : () => import('./users/user.module').then(m => m.UserModule)
       },
       {
-        path:'equipes',
-        loadChildren :()=>import('./equipe/equipe.module').then(m=>m.EquipeModule)
+        path: 'equipes',
+        loadChildren : () => import('./equipe/equipe.module').then(m => m.EquipeModule)
       }
     ]
   },

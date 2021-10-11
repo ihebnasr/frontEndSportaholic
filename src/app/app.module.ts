@@ -73,7 +73,7 @@ import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.comp
     LoginComponent,
     RegisterComponent,
     AddEquipeComponent,
-    UpdateEquipeComponent,
+    UpdateEquipeComponent
   ],
   providers: [
     {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipeModel } from '../../modele/Equipe.model';
 import { EquipeService } from '../../Service/equipe.service';
 
 @Component({
@@ -9,23 +8,18 @@ import { EquipeService } from '../../Service/equipe.service';
 })
 export class ListEquipeComponent implements OnInit {
 
-  constructor(private equipeService: EquipeService) { }
-  equipe: Array<any>;
+  constructor(private equipeService:EquipeService) { }
+  equipe:any
   ngOnInit(): void {
-    this.getallEquipe();
+    this.getallEquipe()
   }
 
-  getallEquipe () {
-    return this.equipeService.allEquipe ().subscribe (
-      ( res: any ) => {
-        this.equipe = res;
-        console.log ( this.equipe );
-        this.equipe.forEach(element => {
-          element.logo = atob(element.logo);
-
-        });
+  getallEquipe(){
+    return this.equipeService.allEquipe().subscribe(
+      (res:any)=>{
+        this.equipe=res
       }
-    );
+    )
   }
 
 }

@@ -7,14 +7,12 @@ const URL = 'http://localhost:8080/stade/';
 })
 export class StadeService {
 
-  httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})};
+  httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient :HttpClient) { }
 
-  getNbrStade() {
-    return this.httpClient.get(URL + 'nbrSate', this.httpOptions);
+  getNbrStade(){
+    return this.httpClient.get(URL+'nbrSate',this.httpOptions);
   }
-  getAllStade() {
-    return this.httpClient.get(URL + 'getAll', this.httpOptions);
-  }
+
 }

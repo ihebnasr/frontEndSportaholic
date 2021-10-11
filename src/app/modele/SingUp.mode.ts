@@ -1,18 +1,18 @@
-import { EquipeModel } from "./Equipe.model";
+import { EquipeModel } from './Equipe.model';
 
-export class SignUpModel{
-    cin:any;
-    nom:any;
-    prenom:any;
-    username:any;
-    password:any; 
-    confirmPassword:any;
-    phoneNumber:any;
-    birthday:any;
-    email:any;
-    address:any;
-    type:any;
-    equipe=new EquipeModel();
+export class SignUpModel {
+    cin: any ;
+    nom: any ;
+    prenom: any ;
+    username: any ;
+    password: any ;
+    confirmPassword: any ;
+    phoneNumber: any;
+    birthday: any;
+    email: any;
+    address: any;
+    type: any;
+    equipe= new EquipeModel();
     image:any;
     imageCin:any;
     constructor(){}

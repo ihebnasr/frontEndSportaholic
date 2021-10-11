@@ -7,16 +7,16 @@ import { navItems } from '../../_nav';
   templateUrl: './default-layout.component.html'
 })
 export class DefaultLayoutComponent {
-  constructor(private router :Router){}
+  constructor(private router: Router ) {}
   public sidebarMinimized = false;
   public navItems = navItems;
 
   toggleMinimize(e) {
     this.sidebarMinimized = e;
   }
-  logout(){
-    localStorage.removeItem("token");
-    this.router.navigate(['/login'])
+  /*logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
 
-  }
+  }*/
 }

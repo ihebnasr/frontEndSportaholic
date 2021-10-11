@@ -7,7 +7,7 @@ import { LoginService } from '../../Service/login.service';
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
 })
-export class LoginComponent { 
+export class LoginComponent {
   logIn= new LoginModel();
   token:any;
  constructor(private loginService:LoginService, private router: Router){}
@@ -22,7 +22,7 @@ export class LoginComponent {
     (err: any)=>console.log(err),
     ()=>{
       localStorage.setItem("token",this.token);
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }
       );
   }
@@ -31,6 +31,6 @@ export class LoginComponent {
 
 
 
-  
+
 
 

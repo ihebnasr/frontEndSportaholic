@@ -11,7 +11,7 @@ export class ListUserNotEnableComponent implements OnInit {
   constructor(private userService: UserService) { }
  users: Array<any>;
   ngOnInit(): void {
-    this.getUserNotEnable()
+    this.getUserNotEnable();
   }
 
   getUserNotEnable() {
