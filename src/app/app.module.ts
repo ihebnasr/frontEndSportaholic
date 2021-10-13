@@ -22,7 +22,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -45,6 +45,8 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { AddEquipeComponent } from './equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.component';
+import { HomeComponent } from './home/home.component';
+import {AuthInterceptor} from './itercepteur/authInetrcepteur';
 
 @NgModule({
   imports: [
@@ -73,9 +75,15 @@ import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.comp
     LoginComponent,
     RegisterComponent,
     AddEquipeComponent,
-    UpdateEquipeComponent
+    UpdateEquipeComponent,
+    HomeComponent
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy

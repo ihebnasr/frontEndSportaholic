@@ -2,6 +2,7 @@
     <thead class="thead-light">
       <tr>
       <!--  <th class="text-center"><i class="icon-people"></i></th>-->
+        <th class="text-center"><i class="icon-people"></i></th>
         <th>nom equipe</th>
 
         <th>abreviation</th>
@@ -12,16 +13,20 @@
     <tbody>
       <tr *ngFor= "let e of equipe ">
        <!-- <td class="text-center">
+       <td class="text-center">
           <div class="avatar">
             <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
             <span class="avatar-status badge-success"></span>
+          <img src="{{e.logo}}" class="img-avatar" >
           </div>
         </td>-->
         <td>
           <div>{{e.nomEquipe}}</div>
-         <!--<div class="small text-muted">
-            <span>New</span> | Registered: Jan 1, 2015
-          </div>-->
+          <div><a routerLink="/equipes/updateEquipe/{{e.id}}" >{{e.nomEquipe}}</a></div>
+
+          <!--<div class="small text-muted">
+             <span>New</span> | Registered: Jan 1, 2015
+           </div>-->
         </td>
       <!--  <td class="text-center">
           <i class="flag-icon flag-icon-us h4 mb-0" title="us" id="us"></i>
@@ -38,7 +43,10 @@
         </td>
 
         <td>
-          <div >{{e.logo}}</div>
+           <div class="avatar">
+            <img src="{{e.logo}}" class="img-avatar">
+            <span class="avatar-status badge-success"></span>
+          </div>
         </td>
 
        <!-- <td >

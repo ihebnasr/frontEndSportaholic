@@ -8,19 +8,23 @@ import { UserService } from '../../Service/user.service';
 })
 export class ListUserComponent implements OnInit {
 
-  listUserEnable:Array<any>;
-  constructor(private userService:UserService) { }
+  listUserEnable: Array<any>;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getUserEnable()
+    this.getUserEnable();
   }
-  getUserEnable(){
+  getUserEnable() {
     return this.userService.getUserEnable().subscribe(
-      (res:any)=>{
-        this.listUserEnable=res;
-        console.log(this.listUserEnable)
+      (res: any) => {
+        this.listUserEnable = res;
+        this.listUserEnable.forEach(element => {
+          element.image = atob(element.image);
+
+        });
+        console.log(this.listUserEnable);
       }
-    )
+    );
   }
 
 }

@@ -14,6 +14,7 @@ export class AddEquipeComponent implements OnInit {
     abrviation:any;
     logo:any;
   }
+  equipe=new EquipeModel();
   image:any
   constructor(private equipesService:EquipeService ,private router:Router) { }
 
@@ -27,6 +28,7 @@ export class AddEquipeComponent implements OnInit {
       reader.onload = e => {
         this.image = reader.result;
         this.equipe.logo=btoa(this.image);
+        console.log(this.equipe.logo)
         //this.testImage=atob(this.cv.image)
       }
     }

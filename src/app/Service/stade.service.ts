@@ -14,5 +14,7 @@ export class StadeService {
   getNbrStade(){
     return this.httpClient.get(URL+'nbrSate',this.httpOptions);
   }
-
+  getAllStade() {
+    return this.httpClient.get(URL + 'getAll', this.httpOptions);
+  }
 }

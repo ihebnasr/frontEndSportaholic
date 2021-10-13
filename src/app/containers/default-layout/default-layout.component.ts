@@ -14,9 +14,9 @@ export class DefaultLayoutComponent {
   toggleMinimize(e) {
     this.sidebarMinimized = e;
   }
-  /*logout() {
+  logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
 
-  }*/
+  }
 }

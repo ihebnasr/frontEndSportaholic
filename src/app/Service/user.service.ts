@@ -9,12 +9,12 @@ export class UserService {
 
   constructor(private httpClient :HttpClient) { }
 
-getUserEnable(){
-  return this.httpClient.get(URL+'Enabled',this.httpOptions);
-}
-getUser(username:any){
-  return this.httpClient.get(URL+`${username}`,this.httpOptions);
-}
+  getUserEnable(){
+    return this.httpClient.get(URL+'Enabled',this.httpOptions);
+  }
+  getUser(username:any){
+    return this.httpClient.get(URL+`${username}`,this.httpOptions);
+  }
   getUserNotEnable() {
     return this.httpClient.get(URL + 'NotEnable', this.httpOptions);
   }

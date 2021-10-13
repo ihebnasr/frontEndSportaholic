@@ -38,16 +38,25 @@ export class DashboardComponent implements OnInit {
         console.log(res);
         this.nbrUserEquipe = res;
       }
-    )
+    );
   }
-  getnbrEquipe() {
+  /*getnbrEquipe() {
   return this.equipeService.getNbrEquipe().subscribe(
     (res: any) => {
     console.log(res);
     this.nbrEquipe = res;
     }
   );
+  }*/
+  getnbrEquipe() {
+    return this.equipeService.getNbrEquipe().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.nbrEquipe = res;
+      }
+    );
   }
+
 
   getStatistique() {
     return this.dashboard.getStat().subscribe(

@@ -13,9 +13,8 @@ import {HomeComponent} from './home/home.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    path: 'dashboard',
+    redirectTo: 'dashboard'
   },
   {
     path: '404',
@@ -32,8 +31,9 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'login',
+    path: '',
     component: LoginComponent,
+    pathMatch: 'full',
     data: {
       title: 'Login Page'
     }

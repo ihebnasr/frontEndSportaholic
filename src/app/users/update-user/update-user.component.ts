@@ -20,9 +20,10 @@ export class UpdateUserComponent implements OnInit {
   getUser(username){
     this.userService.getUser(username).subscribe(
       (res:any)=>{
-        console.log(res)
-        this.user=res
-        this.user.image=atob(this.user.image)
+        console.log(res);
+        this.user = res;
+        this.user.image = atob(this.user.image);
+        this.user.equipe.logo = atob(this.user.equipe.logo);
       } ,
       error => {
         console.log(error);
