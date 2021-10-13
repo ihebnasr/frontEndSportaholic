@@ -16,10 +16,6 @@ export class ListEquipeComponent implements OnInit {
   }
 
   getallEquipe() {
-    return this.equipeService.allEquipe().subscribe(
-      (res: any) => {
-        this.equipe = res;
-        getallEquipe (); {
           return this.equipeService.allEquipe ().subscribe (
             ( res: any ) => {
               this.equipe = res;
@@ -29,13 +25,9 @@ export class ListEquipeComponent implements OnInit {
 
               });
             }
-          )
-        );
+          );
         /*this.equipe.forEach(e => {
           e.logo = atob(e.logo); }
           );*/
-        }
-        );
-      }
-
+  }
 }

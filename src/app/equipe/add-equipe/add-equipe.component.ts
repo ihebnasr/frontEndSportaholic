@@ -9,37 +9,32 @@ import { EquipeService } from '../../Service/equipe.service';
   styleUrls: ['./add-equipe.component.scss']
 })
 export class AddEquipeComponent implements OnInit {
-  equipe:{
-    nomEquipe:any;
-    abrviation:any;
-    logo:any;
-  }
-  equipe=new EquipeModel();
-  image:any
-  constructor(private equipesService:EquipeService ,private router:Router) { }
+
+  equipe = new EquipeModel();
+  image: any;
+  constructor(private equipesService: EquipeService , private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  uploadImage(image){
-    let reader = new FileReader();
-    if(image.files.length!==0) {
+  uploadImage(image) {
+    const reader = new FileReader();
+    if (image.files.length !== 0) {
       reader.readAsDataURL(image.files[0]);
       reader.onload = e => {
         this.image = reader.result;
-        this.equipe.logo=btoa(this.image);
-        console.log(this.equipe.logo)
-        //this.testImage=atob(this.cv.image)
-      }
+        this.equipe.logo = btoa(this.image);
+        console.log(this.equipe.logo);
+      };
     }
   }
-  addEquipe(){
+  addEquipe() {
     this.equipesService.addEquipe(this.equipe).subscribe(
-      (res:any)=>{
+      (res: any ) => {
         console.log(res);
       },
-        (err:any)=>console.log(err),
-       ()=> {
+        (err: any) => console.log(err),
+       () => {
           this.router.navigate(['/equipes/allequipe']);
 
         }
