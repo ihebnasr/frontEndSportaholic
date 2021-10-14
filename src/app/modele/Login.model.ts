@@ -7,7 +7,7 @@ export class LoginModel {
 
    constructor() {}
   userValidate(Login) {
-    if (Login.username = ' ') {
+    if (Login.username = '') {
       return {
         isValid: false, raison: 'username obligatoire'
       };

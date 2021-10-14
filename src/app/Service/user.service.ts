@@ -18,4 +18,7 @@ export class UserService {
   getUserNotEnable() {
     return this.httpClient.get(URL + 'NotEnable', this.httpOptions);
   }
+  enabledUSer(username,enabled){
+    return this.httpClient.put(URL+"enableUser/"+ username +"/"+enabled, this.httpOptions)
+  }
 }

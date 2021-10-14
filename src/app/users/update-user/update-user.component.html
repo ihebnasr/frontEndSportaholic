@@ -1,6 +1,5 @@
-
-    <!-- Navbar top -->
-    <div class="navbar-top">
+<!-- Navbar top -->
+<div class="navbar-top">
         <div class="title">
             <h1>Profile  :  </h1>
             <h2>{{user.nom}}  {{user.prenom}}</h2>
@@ -48,13 +47,13 @@
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                          <td>:   </td>
+                          <td>   </td>
                             <td>{{user.email}}</td>
                           <td></td>
                           <td></td>
-                          <td></td>
+                          <td>enabled</td>
                           <td><label class="switch switch-label switch-pill switch-success">
-                            <input type="checkbox" class="switch-input" checked>
+                            <input type="checkbox" class="switch-input" [checked]="user.situation==='enabled'" (change)="change($event)">
                             <span  class="switch-slider" data-checked="On" data-unchecked="Off"></span>
                           </label></td>
 
@@ -86,6 +85,11 @@
                           <td>  <div class="profile">
                             <img src= "{{user.equipe.logo}}"class="img-avatar" alt="image profil" width="100" height="100">
                           </div></td>
+                          <td><ngx-qrcode
+                            [elementType]="elementType"
+                            [errorCorrectionLevel]="correctionLevel"
+                            [value]="qrCodeValue"
+                            cssClass="bshadow"></ngx-qrcode></td>
                         </tr>
                     </tbody>
                 </table>

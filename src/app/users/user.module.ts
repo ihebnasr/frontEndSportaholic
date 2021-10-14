@@ -7,12 +7,14 @@ import { ListUserComponent } from './list-user/list-user.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ListUserNotEnableComponent } from './list-user-not-enable/list-user-not-enable.component';
+import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UserRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        NgxQRCodeModule
+    ],
   declarations: [
     ListUserComponent,
     UpdateUserComponent,

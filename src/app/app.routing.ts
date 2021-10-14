@@ -10,6 +10,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import {HomeComponent} from './home/home.component';
+import {AuthGuardService} from './itercepteur/AuthGuardService';
 
 export const routes: Routes = [
   {
@@ -50,14 +51,14 @@ export const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Home'
-    }
+    } ,canActivate : [AuthGuardService],
   },
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'dashboard'
-    },
+    },canActivate : [AuthGuardService],
     children: [
       {
         path: 'base',

@@ -46,7 +46,7 @@ import { FormsModule } from '@angular/forms';
 import { AddEquipeComponent } from './equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.component';
 import { HomeComponent } from './home/home.component';
-import {AuthInterceptor} from './itercepteur/authInetrcepteur';
+import {AuthGuardService} from './itercepteur/AuthGuardService';
 
 @NgModule({
   imports: [
@@ -79,14 +79,10 @@ import {AuthInterceptor} from './itercepteur/authInetrcepteur';
     HomeComponent
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
+    AuthGuardService,
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
     },
     IconSetService,
   ],
