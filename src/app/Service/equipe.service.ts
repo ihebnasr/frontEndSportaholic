@@ -29,8 +29,6 @@ export class EquipeService {
   updateEquipe( id: any, equipe: any) {
     return this.httpClient.put(URL + 'update/' + `${id}`, equipe, this.httpOptions);
   }
-  getUserNotEnable() {
-    return this.httpClient.get(URL + 'NotEnable', this.httpOptions);
-  }
+
 
 }

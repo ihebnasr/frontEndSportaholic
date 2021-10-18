@@ -46,15 +46,18 @@ export class UpdateUserComponent implements OnInit {
    }else {
      this.user.situation='NotEnabel'
    }
-   return this.userService.enabledUSer(this.user.username,x.target.checked).subscribe(
+   return this.userService.enabledUSer(this.user.username,x.target.checked,this.user).subscribe(
      (res :any)=>{
        console.log(this.user)
      } ,
      error => {
        if(this.user.situation==='enabled'){
+         console.log(localStorage.getItem('token'))
         this.user.situation='NotEnabled'
      }else {
          this.user.situation='enabled'
+         console.log(localStorage.getItem('token'))
+
        }
      }
   )

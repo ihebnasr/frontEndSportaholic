@@ -58,7 +58,7 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     data: {
       title: 'dashboard'
-    },canActivate : [AuthGuardService],
+    },
     children: [
       {
         path: 'base',
