@@ -58,7 +58,7 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     data: {
       title: 'dashboard'
-    },
+    },canActivate : [AuthGuardService],
     children: [
       {
         path: 'base',
@@ -100,6 +100,11 @@ export const routes: Routes = [
       {
         path: 'equipes',
         loadChildren : () => import('./equipe/equipe.module').then(m => m.EquipeModule)
+      },
+      {
+        path: 'stade',
+        loadChildren : () => import('./stade/Stade.module').then(m => m.StadeModule)
+
       }
     ]
   },

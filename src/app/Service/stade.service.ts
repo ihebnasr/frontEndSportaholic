@@ -7,7 +7,8 @@ const URL = 'http://localhost:8080/stade/';
 })
 export class StadeService {
 
-  httpOptions = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+  httpOption = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')})};
 
   constructor(private httpClient :HttpClient) { }
 
@@ -16,5 +17,11 @@ export class StadeService {
   }
   getAllStade() {
     return this.httpClient.get(URL + 'getAll', this.httpOptions);
+  }
+  updateStade(id,stade){
+    return this.httpClient.put(URL+"updateStade/"+id,stade,this.httpOptions);
+  }
+  getStade(id){
+    return this.httpClient.get(URL+"Stade/"+id,this.httpOption)
   }
 }

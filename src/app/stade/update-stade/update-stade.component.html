@@ -1,1 +1,44 @@
-<p>update-stade works!</p>
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <p class="text-muted">Create Equipe</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="stade.nom" class="form-control" placeholder="nom Equipe"  value="{{stade.nom}}" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="stade.adresse" class="form-control" placeholder="address" value="{{stade.adresse}}"required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="stade.capacite" class="form-control" placeholder="address" value="{{stade.capacite}}"required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="stade.nbr_bloc" class="form-control" placeholder="nbr_bloc" value="{{stade.nbr_bloc}}"required>
+                </div>
+
+                <button type="button"(click)="updateStade()" class="btn btn-block btn-success">update equipe</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

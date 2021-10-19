@@ -6,11 +6,13 @@ import { NgModule } from '@angular/core';
 import {ListStadeComponent} from './list-stade/stade.component';
 import {UpdateStadeComponent} from './update-stade/update-stade.component';
 import {StadeRoutingModule} from './Stade.routing.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    StadeRoutingModule
+    StadeRoutingModule,
+    FormsModule
   ],
   declarations: [
     ListStadeComponent,

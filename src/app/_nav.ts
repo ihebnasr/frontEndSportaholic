@@ -28,6 +28,15 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
+    name: 'Stade'
+  },
+  {
+    name:'stade',
+    url:'/stade/listStade',
+    icon:''
+  },
+  {
+    title: true,
     name: 'equipes'
   },
   {

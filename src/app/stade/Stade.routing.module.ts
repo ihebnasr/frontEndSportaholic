@@ -22,7 +22,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'updateStade/:username',
+        path: 'updateStade/:id',
         component: UpdateStadeComponent,
         data: {
           title: 'update users'
