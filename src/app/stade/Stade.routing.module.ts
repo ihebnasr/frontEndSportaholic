@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ListStadeComponent} from './list-stade/stade.component';
 import {UpdateStadeComponent} from './update-stade/update-stade.component';
+import {AddStadeComponent} from './add-stade/add-stade.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,13 @@ const routes: Routes = [
         component: ListStadeComponent,
         data: {
           title: 'List stade'
+        }
+      },
+      {
+        path: 'addStade',
+        component: AddStadeComponent,
+        data: {
+          title: 'add stade'
         }
       },
       {

@@ -105,7 +105,12 @@ export const routes: Routes = [
         path: 'stade',
         loadChildren : () => import('./stade/Stade.module').then(m => m.StadeModule)
 
-      }
+      },
+      {
+        path: 'bloc',
+        loadChildren : () => import('./bloc/bloc.module').then(m => m.BlocModule)
+
+      },
     ]
   },
   { path: '**', component: P404Component }

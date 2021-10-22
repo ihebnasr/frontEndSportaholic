@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from '../../modele/login.model';
 import { LoginService } from '../../Service/login.service';
+import {pipe} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ export class LoginComponent implements OnInit{
   logIn= new LoginModel();
   token:any;
   user:any;
+  message:any;
  constructor(private loginService:LoginService, private router: Router){}
  ngOnInit(): void {
     if (localStorage.getItem('token')!==undefined){
@@ -34,7 +36,9 @@ export class LoginComponent implements OnInit{
             this.user=res;
             this.token=res.token;
     },
-    (err: any)=>console.log(err),
+    (err: any)=>{console.log(err)
+      this.message="Username or password incorrect"
+    },
     ()=>{
       localStorage.setItem("token",this.token);
       let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")

@@ -31,8 +31,13 @@ export const navItems: INavData[] = [
     name: 'Stade'
   },
   {
-    name:'stade',
+    name:'list stade',
     url:'/stade/listStade',
+    icon:''
+  },
+  {
+    name:'add stade',
+    url:'/stade/addStade',
     icon:''
   },
   {

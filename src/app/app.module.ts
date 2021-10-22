@@ -76,7 +76,8 @@ import {AuthGuardService} from './itercepteur/AuthGuardService';
     RegisterComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   providers: [
     AuthGuardService,

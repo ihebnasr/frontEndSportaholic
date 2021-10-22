@@ -18,14 +18,7 @@ export class ListStadeComponent implements OnInit {
     this.getSatde();
 
   }
-  getbloc(id){
-    return this.blocService.getbloc(id).subscribe(
-      (res:any)=>{
-        this.bloc.push(res)
-        console.log(res)
-      }
-    )
-  }
+
   getSatde() {
     this.stadeService.getAllStade().subscribe(
       (res: any) => {
@@ -33,7 +26,6 @@ export class ListStadeComponent implements OnInit {
         this.stade = res;
       },error => (error),
       () => {
-        this.stade.forEach(this.getbloc(this.stade.id))
       }
     );
   }

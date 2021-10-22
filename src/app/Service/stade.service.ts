@@ -24,4 +24,7 @@ export class StadeService {
   getStade(id){
     return this.httpClient.get(URL+"Stade/"+id,this.httpOption)
   }
+  addStade(stade:any){
+    return this.httpClient.post(URL+"Stade/new",stade,this.httpOptions)
+  }
 }
