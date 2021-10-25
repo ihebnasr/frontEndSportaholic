@@ -11,7 +11,7 @@ export class UpdateEquipeComponent implements OnInit {
 
   //constructor() { }
   equipe = new EquipeModel();
-  equipeUpdate: {} ;
+  equipeUpdate=new EquipeModel();
   image: any;
   constructor(private equipeService: EquipeService, private router: Router, private route: ActivatedRoute) { }
 
@@ -40,12 +40,7 @@ export class UpdateEquipeComponent implements OnInit {
     }
   }
   updateEquipe() {
-    this.equipeUpdate = {
-      nomEquipe: this.equipe.nomEquipe,
-      abrviation: this.equipe.abrviation,
-      logo: this.equipe.logo
 
-    };
     return this.equipeService.updateEquipe(this.route.snapshot.params.id, this.equipeUpdate).subscribe(
       (res: any) => {
         console.log(this.equipeUpdate);

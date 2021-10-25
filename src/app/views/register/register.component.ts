@@ -61,7 +61,7 @@ uploadImageCin(imageCin){
   }
 }
 regitre(){
- 
+
   if(this.signup.registerValidation){
 
   this.loginService.register(this.signup).subscribe(
@@ -70,7 +70,7 @@ regitre(){
     },
       (err:any)=>console.log(err),
      ()=> {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
 
       }
   );
