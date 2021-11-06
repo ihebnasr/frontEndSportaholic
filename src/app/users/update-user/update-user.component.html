@@ -31,7 +31,7 @@
     <!-- End -->
 
     <!-- Main -->
-     <div class="main">
+     <div class="main" >
         <h2>IDENTITY</h2>
         <div class="card">
             <div class="card-body">
@@ -41,7 +41,7 @@
                         <tr>
                             <td>CIN</td>
                             <td>:</td>
-                          <td>:   </td>
+                          <td>   </td>
                             <td>{{user.cin}}</td>
                         </tr>
                         <tr>
@@ -61,25 +61,25 @@
                         <tr>
                             <td>Address</td>
                             <td>:</td>
-                          <td>:   </td>
+                            <td>   </td>
                             <td>{{user.address}}</td>
                         </tr>
                         <tr>
                             <td>username</td>
                             <td>:</td>
-                          <td>:   </td>
+                            <td>   </td>
                             <td>{{user.username}}</td>
                         </tr>
                         <tr>
                             <td>phone Number</td>
                             <td>:</td>
-                          <td>:   </td>
+                            <td>   </td>
                             <td>{{user.numTel}}</td>
                         </tr>
                         <tr>
                             <td>equipe</td>
                             <td>:</td>
-                          <td>:   </td>
+                            <td>   </td>
                             <td>{{user.equipe.nomEquipe}}</td>
                           <td></td>
                           <td>  <div class="profile">
@@ -89,7 +89,12 @@
                             [elementType]="elementType"
                             [errorCorrectionLevel]="correctionLevel"
                             [value]="qrCodeValue"
-                            cssClass="bshadow"></ngx-qrcode></td>
+                            cssClass="bshadow"
+                            [width]="100"
+                            errorCorrectionLevel="H"
+                            ></ngx-qrcode>
+
+                          </td>
                         </tr>
                     </tbody>
                 </table>
@@ -97,3 +102,37 @@
         </div>
      </div>
     <!-- End -->
+    <div  class="main" >
+      <button type="button"(click)="generatePDF()" class="btn btn-success">PDF Carte</button>
+
+      <div #content>
+
+       <div  id="carte" [style.backgroundImage]="'url('+ carte.modelCarte +')'">
+
+
+          <div id="image"></div>
+
+         <div id="cartename"><h2>{{carte.nomCarte}}</h2></div>
+         <div id="image" class="profile">
+           <img src= "{{user.image}}"class="img-avatar" alt="image profil" width="50" height="50">
+         </div>
+
+         <div id="nom">{{user.nom}}</div>
+         <div id="prenom">{{user.prenom}}</div>
+         <div id="adress"> {{user.address}}</div>
+
+        </div>
+
+        <div id="codeqr" ><ngx-qrcode
+        [elementType]="elementType"
+        [errorCorrectionLevel]="correctionLevel"
+        [value]="qrCodeValue"
+        cssClass="bshadow"
+        [width]="50"
+        errorCorrectionLevel="H"
+      ></ngx-qrcode>
+      </div>
+
+    </div>
+
+    </div>

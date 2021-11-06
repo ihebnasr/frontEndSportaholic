@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
       <!-- Brand -->
-      <a class="navbar-brand mr-auto" href="#"><img src="./assets/images/logo.png" alt="FoxPro" /></a>
+      <a class="navbar-brand mr-auto" href="#"><img src="./assets/img/brand/capture1.png" alt="FoxPro" /></a>
 
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span> </button>
@@ -13,8 +13,8 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link" href="#">Home</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#about-us">About</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Courses</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+          <li class="nav-item"> <a class="nav-link" [routerLink]="['/partie/listPartieUser']" fragment="partie">Courses</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/#/Partie/listPartieUser">Contact</a> </li>
         </ul>
         <ul class="navbar-nav ml-5">
           <li class="nav-item"> <a class="nav-link btn btn-danger" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> </li>
@@ -25,7 +25,7 @@
   <div class="container">
     <div class="fh5co-banner-text-box">
       <div class="quote-box pl-5 pr-5 wow bounceInRight">
-        <h2> FREE TEMPLATE <br><span>BY FREEHTML5.CO</span> </h2>
+        <h2> Bienvenue <br><span>Chez Sportaholic access </span> </h2>
       </div>
       <a href="#" class="btn text-uppercase btn-outline-danger btn-lg mr-3 mb-3 wow bounceInUp"> What's new</a> <a href="#" class="btn text-uppercase btn-outline-danger btn-lg mb-3 wow bounceInDown"> Courses</a> </div>
   </div>
@@ -69,28 +69,39 @@
           <img src="./assets/images/gym-girls.jpg" alt="girls in gym" class="img-fluid" /> </div>
       </div>
     </div>
-    <div class="row trainers pl-0 pr-0">
+    <div name="partie" *ngFor= "let p of parties" class="row trainers pl-0 pr-0">
       <div class="col-12 bg-50">
-        <div class="quote-box2 wow bounceInDown" data-wow-delay=".25s">
-          <h2> TRAINERS </h2>
+        <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
+          <h2> {{p.categroie.nom}} </h2>
+
+        </div>
+
+        <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
+          <h2>  {{p.stade.nom}} <br><span>{{p.date}} </span><br><span>{{p.time}} </span></h2>
         </div>
       </div>
-      <div class="col-md-6 pr-5 pl-5">
-        <div class="card text-center wow bounceInLeft" data-wow-delay=".25s"> <img class="card-img-top rounded-circle img-fluid" src="./assets/images/trainers1.jpg" alt="Card image">
+      <div class="col-md-6 pr-2 pl-2">
+        <div class="card text-center wow bounceInLeft" data-wow-delay=".20s"> <img class="card-img-top rounded-circle img-fluid" src="{{p.equipeLocaux.logo}}" alt="Card image">
           <div class="card-body mb-5">
-            <h4 class="card-title">JENIFERR</h4>
-            <p class="card-text">Trainers, athletes and serious clients alike are looking for the toughest, most brutally productive training techniques to spice up their workouts and provide a truly unique challenge</p>
+            <h4 class="card-title">{{p.equipeLocaux.nomEquipe}}</h4>
           </div>
         </div>
       </div>
-      <div class="col-md-6 pl-5 pr-5">
-        <div class="card text-center wow bounceInRight" data-wow-delay=".25s"> <img class="card-img-top rounded-circle img-fluid" src="./assets/images/trainers2.jpg" alt="Card image">
+
+      <div class="col-md-6 pl-2 pr-2">
+        <div class="card text-center wow bounceInRight" data-wow-delay=".20s"> <img class="card-img-top rounded-circle img-fluid" src="{{p.equipeVisiteur.logo}}" alt="Card image">
           <div class="card-body mb-5">
-            <h4 class="card-title">JHON</h4>
-            <p class="card-text">Trainers, athletes and serious clients alike are looking for the toughest, most brutally productive training techniques to spice up their workouts and provide a truly unique challenge</p>
+            <h4 class="card-title">{{p.equipeVisiteur.nomEquipe}}</h4>
           </div>
         </div>
       </div>
+      <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
+        <h2>  nombre de reservation {{p.nbr_place}} </h2>
+
+
+
+      </div>
+
     </div>
     <div class="row gallery">
       <div class="col-md-4">

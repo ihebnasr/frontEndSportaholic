@@ -5,6 +5,8 @@ import { DashboardService } from '../../Service/dashboard.service';
 import { EquipeService } from '../../Service/equipe.service';
 import { StadeService } from '../../Service/stade.service';
 import { Router } from '@angular/router';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {Label} from 'ng2-charts';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -15,30 +17,65 @@ export class DashboardComponent implements OnInit {
   nbrUserNotEnabled: any;
   nbrEquipe: any;
   nbrStade: any;
-  stat: Array<any> = [];
+  stat: string [];
   nbrUserEquipe: Array<number> = [];
+
+
+  public type: ChartType = 'bar';
+
+  public labels: Label[]  ;
+
+  public datasets: ChartDataSets[] = [
+    {
+      label: '# of Votes',
+      data: this.nbrUserEquipe,
+
+      borderWidth: 1
+    }];
+
+  public options: ChartOptions = {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+
+        },
+      }]
+    }
+  };
+
+  startDateArry: any[] = [];
+  blinkArry: any[] = [];
+
   constructor(private stadeService: StadeService, private dashboard: DashboardService , private equipeService: EquipeService, private router: Router) {}
   ngOnInit(): void {
-    // generate random values for mainChart
-    for (let i = 0; i <= this.mainChartElements; i++) {
-      this.mainChartData1.push();
-      this.mainChartData2.push(this.random(80, 100));
-      this.mainChartData3.push(65);
-    }
+
     this.getNbrUserEnable();
     this.getNbrUserNotEnabled();
     this.getnbrEquipe();
     this.getNbrStade();
     this.getStatistique();
     this.getNbrUserEquipe();
+
+
+    // generate random values for mainChart
+
+    this.labels = this.startDateArry;
+    this.datasets = [{ data: this.blinkArry, label: 'equipe' }];
+
   }
   getNbrUserEquipe() {
     return this.dashboard.getStatNbrUser().subscribe(
       (res: any ) => {
         console.log(res);
         this.nbrUserEquipe = res;
-      }
-    );
+        for(var value of this.nbrUserEquipe){
+          this.blinkArry.push(value)
+        }
+        console.log(this.blinkArry)
+          })
+
+
   }
   /*getnbrEquipe() {
   return this.equipeService.getNbrEquipe().subscribe(
@@ -60,17 +97,20 @@ export class DashboardComponent implements OnInit {
 
   getStatistique() {
     return this.dashboard.getStat().subscribe(
-      (res: any[]) => {
+      (res: any) => {
         console.log(res);
         this.stat = res;
-       }
-      );
+        for(var value of this.stat){
+          this.startDateArry.push(value)
+        }
+        console.log(this.startDateArry)
+
+        });
   }
 
   getNbrStade () {
     return this.stadeService.getNbrStade ().subscribe (
       (res: any) => {
-        console.log (res);
         this.nbrStade = res;
       }
     );
@@ -81,6 +121,9 @@ export class DashboardComponent implements OnInit {
       (res:any)=>{
         console.log(res);
         this.nbrUserEnabled=res;
+      },error => console.log(error),() =>
+      {
+
       }
     )
   }
@@ -92,15 +135,7 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-  radioModel: string = 'Month';
 
-  // lineChart1
-  public lineChart1Data: Array<any> = [
-    {
-      data: [65, 59, 84, 84, 51, 55, 40],
-      label: 'Series A'
-    }
-  ];
   public lineChart1Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChart1Options: any = {
     tooltips: {
@@ -296,7 +331,7 @@ export class DashboardComponent implements OnInit {
 
   // mainChart
 
-  public mainChartElements = this.stat.length;
+  public mainChartElements =100;
   public mainChartData1: Array<number> = [];
   public mainChartData2: Array<number> = [];
   public mainChartData3: Array<number> = [];

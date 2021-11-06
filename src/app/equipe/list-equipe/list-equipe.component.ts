@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { EquipeModel } from '../../modele/Equipe.model';
 import { EquipeService } from '../../Service/equipe.service';
 
 @Component({
   selector: 'app-list-equipe',
   templateUrl: './list-equipe.component.html',
-  styleUrls: ['./list-equipe.component.scss']
+  styleUrls: ['./list-equipe.component.scss'],
+
 })
 export class ListEquipeComponent implements OnInit {
 

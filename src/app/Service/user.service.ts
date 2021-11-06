@@ -16,6 +16,9 @@ export class UserService {
   getUser(username:any){
     return this.httpClient.get(URL+`${username}`,this.httpOptions);
   }
+  getUserid(id){
+    return this.httpClient.get(URL+"getuser/"+id,this.httpOptions);
+  }
   getUserNotEnable() {
     return this.httpClient.get(URL + 'NotEnable', this.httpOptions);
   }

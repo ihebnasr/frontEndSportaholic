@@ -13,16 +13,16 @@ export const navItems: INavData[] = [
 
   {
     title: true,
-    name: 'Users'
-  },
+    name: 'Users',
+      },
   {
-    name: 'user enable',
+    name: 'les utilisateurs activent',
     url: '/users/userEnable',
     icon: 'icon-user'
 
   },
   {
-    name: 'user not enable',
+    name: "lister les utilisateurs n'est pas activés",
     url: '/users/userNotEnable',
     icon: 'icon-user'
   },
@@ -31,12 +31,12 @@ export const navItems: INavData[] = [
     name: 'Stade'
   },
   {
-    name:'list stade',
+    name:'Liste des stades',
     url:'/stade/listStade',
     icon:''
   },
   {
-    name:'add stade',
+    name:'ajouter stade',
     url:'/stade/addStade',
     icon:''
   },
@@ -45,9 +45,35 @@ export const navItems: INavData[] = [
     name: 'equipes'
   },
   {
-    name: 'list equipe',
+    name: 'liste des equipes',
     url: '/equipes/allequipe',
     icon: 'icon-user'
+
+  },
+  {
+    title: true,
+    name: 'carte'
+  },
+  {
+    name: 'liste des cartes',
+    url: '/carte/allCarte',
+    icon: 'fa fa-drivers-license'
+
+  },
+  {
+    title: true,
+    name: 'Partie'
+  },
+  {
+    name: 'liste des partie',
+    url: '/partie/listPartie',
+    icon: 'fa fa-drivers-license'
+
+  },
+  {
+    name: 'ajouter partie',
+    url: '/partie/addPartie',
+    icon: 'fa fa-drivers-license'
 
   },
   {

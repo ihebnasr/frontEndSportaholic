@@ -28,7 +28,7 @@ export class UpdateStadeComponent implements OnInit {
     return this.stadeService.getStade(id).subscribe(
       (res:any)=>{
         console.log(res)
-     this.stade=res;
+        this.stade=res;
         this.getbloc(this.stade.id)
       },
       (err: any)=>console.log(err),

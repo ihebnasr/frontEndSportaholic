@@ -1,0 +1,46 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <p class="text-muted">Create Equipe</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="carteUpdate.nomCarte" class="form-control" placeholder="nom carte" autocomplete="nom carte" [value]="carte.nomCarte" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
+                  </div>
+                  <input #img (change)="uploadImage(img)" type="file"  title="logo" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
+
+                </div>
+                <div>
+
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-list"></i></span>
+                  </div>
+                  <select  (change)="onChangeEquipe($event)">
+                    <option value="" disabled selected>Selecte l'equipe</option>
+                    <option  *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
+                  </select>
+
+                </div>
+                <button type="button"(click)="updatecarte()" class="btn btn-block btn-success">modefier cartes</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

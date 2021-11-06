@@ -18,4 +18,5 @@ export class BlocService {
   getBloc(id){
     return this.httpClient.get(URL+"bloc/"+id,this.httpOptions);
   }
+
 }

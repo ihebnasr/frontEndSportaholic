@@ -11,6 +11,10 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import {HomeComponent} from './home/home.component';
 import {AuthGuardService} from './itercepteur/AuthGuardService';
+import {ListPartieUserComponent} from './Partie/list-partie-user/list-partie-user.component';
+import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-vuser.component';
+import {NewCodeComponent} from './codeConfirmation/new-code/new-code.component';
+import {AddResevationComponent} from './reservation/add-resevation/add-resevation.component';
 
 export const routes: Routes = [
   {
@@ -25,10 +29,40 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'Partie/listPartieUser',
+    component: ListPartieUserComponent,
+    data: {
+      title: 'Liste partie'
+    },canActivate:[AuthGuardService],
+  },
+  {
+    path: 'Partie/listPartieVUser',
+    component: ListPartieVUserComponent,
+    data: {
+      title: 'Liste partie'
+    },canActivate:[AuthGuardService],
+  },
+  {
     path: '500',
     component: P500Component,
     data: {
       title: 'Page 500'
+    }
+  },
+  {
+    path: 'codeConfirmation/codeconfirm/:num',
+    component: NewCodeComponent,
+    pathMatch: 'full',
+    data: {
+      title: 'code confirmation'
+    }
+  },
+  {
+    path: 'reservation/addReservation/:id',
+    component: AddResevationComponent,
+    pathMatch: 'full',
+    data: {
+      title: 'reservation partie'
     }
   },
   {
@@ -51,14 +85,20 @@ export const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Home'
-    } ,canActivate : [AuthGuardService],
+    } ,
+   children: [
+     {
+       path: 'equipes',
+       loadChildren : () => import('./equipe/equipe.module').then(m => m.EquipeModule)
+     }
+      ]
   },
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'dashboard'
-    },canActivate : [AuthGuardService],
+    },
     children: [
       {
         path: 'base',
@@ -111,6 +151,17 @@ export const routes: Routes = [
         loadChildren : () => import('./bloc/bloc.module').then(m => m.BlocModule)
 
       },
+      {
+        path: 'carte',
+        loadChildren : () => import('./carte/carte.module').then(m => m.CarteModule)
+
+      },
+      {
+        path: 'partie',
+        loadChildren : () => import('./partie/partie.module').then(m => m.PartieModule)
+
+      }
+
     ]
   },
   { path: '**', component: P404Component }

@@ -6,13 +6,17 @@ import { ListEquipeComponent } from './list-equipe/list-equipe.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EquipeRoutingModule
-  ],
-  declarations: [
+    imports: [
+        CommonModule,
+        EquipeRoutingModule
+    ],
+  exports: [
     ListEquipeComponent,
-    
-  ]
+    ListEquipeComponent
+  ],
+    declarations: [
+        ListEquipeComponent,
+
+    ]
 })
 export class EquipeModule { }

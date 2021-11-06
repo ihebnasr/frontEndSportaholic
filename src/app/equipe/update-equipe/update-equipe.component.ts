@@ -33,8 +33,8 @@ export class UpdateEquipeComponent implements OnInit {
       reader.readAsDataURL(image.files[0]);
       reader.onload = e => {
         this.image = reader.result;
-        this.equipe.logo = btoa(this.image);
-        console.log(this.equipe.logo);
+        this.equipeUpdate.logo = btoa(this.image);
+        console.log(this.equipeUpdate.logo);
         // this.testImage=atob(this.cv.image)
       };
     }

@@ -18,7 +18,7 @@ export class DashboardService {
     return this.httpClient.get(URL+'nbrUserNotEnabled',this.httpOptions);
   }
   getStat(){
-    return this.httpClient.get(URL+'stat',this.httpOptions);
+    return this.httpClient.get(URL+'statUser',this.httpOptions);
   }
   getStatNbrUser(){
     return this.httpClient.get(URL + 'statNbrUser', this.httpOptions);

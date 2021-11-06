@@ -47,25 +47,31 @@ import { AddEquipeComponent } from './equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './equipe/update-equipe/update-equipe.component';
 import { HomeComponent } from './home/home.component';
 import {AuthGuardService} from './itercepteur/AuthGuardService';
+import {EquipeModule} from './equipe/equipe.module';
+import {ListPartieUserComponent} from './Partie/list-partie-user/list-partie-user.component';
+import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-vuser.component';
+import { NewCodeComponent } from './codeConfirmation/new-code/new-code.component';
+import { AddResevationComponent } from './reservation/add-resevation/add-resevation.component';
 
 @NgModule({
-  imports: [
-    FormsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    AppAsideModule,
-    AppBreadcrumbModule.forRoot(),
-    AppFooterModule,
-    AppHeaderModule,
-    AppSidebarModule,
-    PerfectScrollbarModule,
-    BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
-    ChartsModule,
-    IconModule,
-    IconSetModule.forRoot(),
-    HttpClientModule
+    imports: [
+        FormsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        AppAsideModule,
+        AppBreadcrumbModule.forRoot(),
+        AppFooterModule,
+        AppHeaderModule,
+        AppSidebarModule,
+        PerfectScrollbarModule,
+        BsDropdownModule.forRoot(),
+        TabsModule.forRoot(),
+        ChartsModule,
+        IconModule,
+        IconSetModule.forRoot(),
+        HttpClientModule,
+        EquipeModule
     ],
   declarations: [
     AppComponent,
@@ -77,6 +83,10 @@ import {AuthGuardService} from './itercepteur/AuthGuardService';
     AddEquipeComponent,
     UpdateEquipeComponent,
     HomeComponent,
+    ListPartieUserComponent,
+    ListPartieVUserComponent,
+    NewCodeComponent,
+    AddResevationComponent,
 
   ],
   providers: [

@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit{
     },
     ()=>{
       localStorage.setItem("token",this.token);
+      localStorage.setItem("id",this.user.id)
       let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
       localStorage.setItem('roles',index);
 
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit{
       if (index===0){
       this.router.navigate(['/dashboard']);
       }else{
-        this.router.navigate(['/home']);
+        this.router.navigate(['/Partie/listPartieUser']);
 
       }
     }

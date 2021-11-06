@@ -16,6 +16,7 @@ export class RegisterComponent {
   types=["abonne","public","jornalisme","arbitre"];
   image:any;
   imageCin:any
+  num:any;
   constructor(private loginService:LoginService, private router: Router, private equipeService:EquipeService ) { }
   ngOnInit(): void {
     this.getEquipe();
@@ -67,10 +68,12 @@ regitre(){
   this.loginService.register(this.signup).subscribe(
     (res:any)=>{
       console.log(res);
+      this.num=res.num;
+      console.log(this.num);
     },
       (err:any)=>console.log(err),
      ()=> {
-        this.router.navigate(['/']);
+        this.router.navigate(['/codeConfirmation/codeconfirm/'+this.num]);
 
       }
   );

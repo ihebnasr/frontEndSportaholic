@@ -3,7 +3,48 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(3px 3px 3px #000000);
+  filter: drop-shadow(1px 1px 1px #000000);
   opacity: inherit;
 
+}
+#carte{
+
+  background-size: inherit;
+  width: 500px;
+  height:250px;
+  position: relative;
+  background-repeat: no-repeat;
+}
+#cartename{
+  width: 10px;
+  height: 10px;
+  position: relative  ;
+  top: 20px;
+  left: 20px;
+  font-weight: bold;
+  color: red;
+}
+#image{
+
+  position: relative;
+  top: 70px;
+  left: 20px;
+}
+#nom,#prenom,#adress{
+
+  top: 90px;
+  left: 20px;
+  position: relative  ;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+
+#codeqr{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  bottom: 75px;
+  left: 400px;
 }
