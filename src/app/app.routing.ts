@@ -66,7 +66,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
     pathMatch: 'full',
     data: {
@@ -81,17 +81,11 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     data: {
       title: 'Home'
-    } ,
-   children: [
-     {
-       path: 'equipes',
-       loadChildren : () => import('./equipe/equipe.module').then(m => m.EquipeModule)
-     }
-      ]
+    }
   },
   {
     path: '',
@@ -159,6 +153,11 @@ export const routes: Routes = [
       {
         path: 'partie',
         loadChildren : () => import('./partie/partie.module').then(m => m.PartieModule)
+
+      },
+      {
+        path: 'reservation',
+        loadChildren : () => import('./reservation/reservation.module').then(m => m.ReservationModule)
 
       }
 

@@ -1,13 +1,13 @@
-<div id="card" *ngFor= "let p of parties" class="card container">
+<div id="card" *ngFor= "let p of parties" class="card container" >
   <div class="card-header">
     <div class="col-12 bg-50">
       <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
-        <h2> <a routerLink="/stade/updateStade/{{p.id}}"> {{p.categroie.nom}} </a></h2>
+        <h2> <a routerLink="/partie/updatePartie/{{p.id}}"> {{p.categroie.nom}} </a></h2>
       </div>
   </div>
   </div>
 <div  class="card-body">
-    <div class="quote-box2 text-center bounceInDown" data-wow-delay=".20s">
+    <div class="quote-box2 text-center ">
       <h2>  {{p.stade.nom}} <br><span>{{p.date}} </span><br><span>{{p.time}} </span></h2><br>
       <div class="quote-box2 text-center bounceInDown" data-wow-delay=".20s">
         <h2>  nombre de reservation {{p.nbr_place}} </h2>

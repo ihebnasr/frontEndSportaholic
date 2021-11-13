@@ -1,3 +1,16 @@
+<label class="form-label"><h2>chercher utilisateur </h2> </label>
+<div class="input-group">
+  <div class="form-outline">
+    <select class="form-control"(change)="onChangeEquipe($event)">
+      <option value="" disabled selected>slectionnez equipe</option>
+      <option *ngFor="let e of equipe" [value]="e.nomEquipe">{{e.nomEquipe}}</option>
+    </select>   </div>
+  <button (click)="getUsersEquipe()" type="button" class="btn btn-primary">
+    <i class="fa fa-search"></i>
+  </button>
+</div>
+<label class="form-label"><br><h2>Liste des reservations</h2> </label>
+
 <table class="table table-responsive-sm table-hover table-outline mb-0">
   <thead class="thead-light">
   <tr>

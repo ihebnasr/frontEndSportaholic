@@ -52,6 +52,7 @@ import {ListPartieUserComponent} from './Partie/list-partie-user/list-partie-use
 import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-vuser.component';
 import { NewCodeComponent } from './codeConfirmation/new-code/new-code.component';
 import { AddResevationComponent } from './reservation/add-resevation/add-resevation.component';
+import { ListResevationComponent } from './reservation/list-resevation/list-resevation.component';
 
 @NgModule({
     imports: [

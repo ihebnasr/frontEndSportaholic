@@ -1,3 +1,17 @@
+
+<label class="form-label"><h2>chercher utilisateur </h2> </label>
+<div class="input-group">
+  <div class="form-outline">
+    <select class="form-control"(change)="onChangeEquipe($event)">
+      <option value="" disabled selected>slectionnez equipe</option>
+      <option *ngFor="let e of equipe" [value]="e.nomEquipe">{{e.nomEquipe}}</option>
+    </select>   </div>
+  <button (click)="getUsersEquipe()" type="button" class="btn btn-primary">
+    <i class="fa fa-search"></i>
+  </button><br>
+
+</div>
+<label class="form-label"><h2>liste des utilisateur active  </h2> </label>
 <table class="table table-responsive-sm table-hover table-outline mb-0">
     <thead class="thead-light">
       <tr>
@@ -22,22 +36,16 @@
         </td>
         <td>
           <div>{{user.cin}}</div>
-         <!--<div class="small text-muted">
-            <span>New</span> | Registered: Jan 1, 2015
-          </div>-->
+
         </td>
-      <!--  <td class="text-center">
-          <i class="flag-icon flag-icon-us h4 mb-0" title="us" id="us"></i>
-        </td>-->
+
         <td>
           <div class="clearfix">
             <div class="float-left">
               {{user.nom}}
             </div>
           </div>
-        <!--<div class="progress progress-xs">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>-->
+
         </td>
 
         <td>

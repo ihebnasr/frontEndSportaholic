@@ -5,7 +5,6 @@ const URL = 'http://localhost:8080/users/';
   providedIn: 'root'
 })
 export class UserService {
-  httpOption = {headers: new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')})}
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')})};
 
   constructor(private httpClient :HttpClient) { }
@@ -25,5 +24,10 @@ export class UserService {
   enabledUSer(username,enabled,user){
     return this.httpClient.put(URL+"enableUser/"+username +"/"+enabled,user, this.httpOptions)
   }
-
+  getUserEquipe(nomEquipe){
+    return this.httpClient.get(URL+"getUserNomEquipeNotEnable/"+nomEquipe, this.httpOptions);
+  }
+  getUserEquipeEnable(nomEquipe){
+    return this.httpClient.get(URL+"getUserNomEquipeEnable/"+nomEquipe, this.httpOptions);
+  }
 }

@@ -21,6 +21,7 @@ export class ListPartieUserComponent implements OnInit {
     return this.userService.getUserid(localStorage.getItem('id')).subscribe(
       (res:any)=>{
           this.user=res
+        this.user.equipe.logo=atob(this.user.equipe.logo)
       }
     )
   }

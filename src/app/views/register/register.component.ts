@@ -31,9 +31,9 @@ export class RegisterComponent {
     );
   }
 
-  onChangeEquipe(newValue:number){
+  onChangeEquipe(newValue){
     console.log(newValue);
-    this.signup.equipe.id = newValue;
+    this.signup.equipe.id = newValue.target.value;
   }
   onChange(newValue) {
     console.log(newValue);

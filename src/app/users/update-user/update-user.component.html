@@ -1,138 +1,128 @@
-<!-- Navbar top -->
-<div class="navbar-top">
-        <div class="title">
-            <h1>Profile  :  </h1>
-            <h2>{{user.nom}}  {{user.prenom}}</h2>
 
-        </div>
+<div id="body" class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+            <h2>IDENTITY</h2>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                  <div id="nav" class="navbar-top">
+                    <div class="title">
+                      <h1>Profile  :  </h1>
+                      <h2>{{user.nom}}  {{user.prenom}}</h2>
+                    </div>
+                  </div>
+                  <div id="sid"class="sidenav">
+                    <div class="profile">
+                      <img src= "{{user.image}}"class="img-avatar" alt="image profil" width="100" height="100">
 
-        <!-- Navbar -->
-        <!-- End -->
-    </div>
-    <!-- End -->
 
-    <!-- Sidenav -->
-    <div class="sidenav">
-        <div class="profile">
-            <img src= "{{user.image}}"class="img-avatar" alt="image profil" width="100" height="100">
 
-            <div class="name">
-                {{user.name}}
+
+                    </div>
+                  </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>CIN</td>
+                                <td>:</td>
+                              <td>   </td>
+                                <td>{{user.cin}}</td>
+                            </tr>
+                            <tr>
+                              <td>Age </td>
+                              <td>:</td>
+                              <td>   </td>
+                              <td>{{age}} ans</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                              <td>   </td>
+                                <td>{{user.email}}</td>
+                              <td></td>
+                              <td></td>
+                              <td>enabled</td>
+                              <td></td>
+                              <td><label class="switch switch-label switch-pill switch-success">
+                                <input type="checkbox" class="switch-input" [checked]="user.situation==='enabled'" (change)="change($event)">
+                                <span  class="switch-slider" data-checked="On" data-unchecked="Off"></span>
+                              </label></td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td>   </td>
+                                <td>{{user.address}}</td>
+                            </tr>
+                            <tr>
+                                <td>username</td>
+                                <td>:</td>
+                                <td>   </td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>phone Number</td>
+                                <td>:</td>
+                                <td>   </td>
+                                <td>{{user.numTel}}</td>
+                            </tr>
+                            <tr>
+                                <td>equipe</td>
+                                <td>:</td>
+                                <td>   </td>
+                                <td>{{user.equipe.nomEquipe}}</td>
+                              <td></td>
+                              <td>  <div class="profile">
+                                <img src= "{{user.equipe.logo}}"class="img-avatar" alt="image profil" width="100" height="100">
+                              </div></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="job">
-                {{user.prenom}}
-            </div>
-        </div>
-
-        <div class="sidenav-url">
-
-        </div>
-    </div>
-    <!-- End -->
-
-    <!-- Main -->
-     <div class="main" >
-        <h2>IDENTITY</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>CIN</td>
-                            <td>:</td>
-                          <td>   </td>
-                            <td>{{user.cin}}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                          <td>   </td>
-                            <td>{{user.email}}</td>
-                          <td></td>
-                          <td></td>
-                          <td>enabled</td>
-                          <td><label class="switch switch-label switch-pill switch-success">
-                            <input type="checkbox" class="switch-input" [checked]="user.situation==='enabled'" (change)="change($event)">
-                            <span  class="switch-slider" data-checked="On" data-unchecked="Off"></span>
-                          </label></td>
-
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>:</td>
-                            <td>   </td>
-                            <td>{{user.address}}</td>
-                        </tr>
-                        <tr>
-                            <td>username</td>
-                            <td>:</td>
-                            <td>   </td>
-                            <td>{{user.username}}</td>
-                        </tr>
-                        <tr>
-                            <td>phone Number</td>
-                            <td>:</td>
-                            <td>   </td>
-                            <td>{{user.numTel}}</td>
-                        </tr>
-                        <tr>
-                            <td>equipe</td>
-                            <td>:</td>
-                            <td>   </td>
-                            <td>{{user.equipe.nomEquipe}}</td>
-                          <td></td>
-                          <td>  <div class="profile">
-                            <img src= "{{user.equipe.logo}}"class="img-avatar" alt="image profil" width="100" height="100">
-                          </div></td>
-                          <td><ngx-qrcode
-                            [elementType]="elementType"
-                            [errorCorrectionLevel]="correctionLevel"
-                            [value]="qrCodeValue"
-                            cssClass="bshadow"
-                            [width]="100"
-                            errorCorrectionLevel="H"
-                            ></ngx-qrcode>
-
-                          </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-     </div>
-    <!-- End -->
-    <div  class="main" >
-      <button type="button"(click)="generatePDF()" class="btn btn-success">PDF Carte</button>
-
-      <div #content>
-
-       <div  id="carte" [style.backgroundImage]="'url('+ carte.modelCarte +')'">
-
-
-          <div id="image"></div>
-
-         <div id="cartename"><h2>{{carte.nomCarte}}</h2></div>
-         <div id="image" class="profile">
-           <img src= "{{user.image}}"class="img-avatar" alt="image profil" width="50" height="50">
          </div>
+        <!-- End -->
+        <div  class="main" >
+          <button type="button"(click)="generatePDF()" class="btn btn-success">PDF Carte</button>
 
-         <div id="nom">{{user.nom}}</div>
-         <div id="prenom">{{user.prenom}}</div>
-         <div id="adress"> {{user.address}}</div>
+          <div #content>
+
+           <div  id="carte" [style.backgroundImage]="'url('+ carte.modelCarte +')'">
+
+
+
+             <div id="image" class="profile">
+               <img src= "{{user.image}}"alt="image profil" width="100" height="110">
+             </div>
+
+             <div id="nom"> Nom : {{user.nom}}</div>
+             <div id="prenom"> Prenom : {{user.prenom}}</div>
+             <div id="adress"> Addresse : {{user.address}}</div>
+
+            </div>
+
+            <div id="codeqr" ><ngx-qrcode
+            [elementType]="elementType"
+            [errorCorrectionLevel]="correctionLevel"
+            [value]="qrCodeValue"
+            cssClass="bshadow"
+            [width]="70"
+            errorCorrectionLevel="H"
+          ></ngx-qrcode>
+          </div>
 
         </div>
 
-        <div id="codeqr" ><ngx-qrcode
-        [elementType]="elementType"
-        [errorCorrectionLevel]="correctionLevel"
-        [value]="qrCodeValue"
-        cssClass="bshadow"
-        [width]="50"
-        errorCorrectionLevel="H"
-      ></ngx-qrcode>
+        </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
-    </div>
+  </main>
+</div>

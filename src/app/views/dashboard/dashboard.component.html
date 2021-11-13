@@ -7,7 +7,7 @@
             <i class="icon-user"></i>
           </button>
           <div class="text-value">{{nbrUserEnabled}}</div>
-          <div>Nombre d'utilisateurs activer </div>
+          <div>Nombre d'utilisateurs actifs </div>
         </div>
 
       </div>
@@ -21,7 +21,7 @@
             </button>
           </div>
           <div class="text-value">{{nbrUserNotEnabled}}</div>
-          <div>Nombre d'utilisateurs non activés  </div>
+          <div>Nombre d'utilisateurs non actifs  </div>
         </div>
       </div>
     </div><!--/.col-->
@@ -65,8 +65,9 @@
       <div class="row">
         <div class="container-fluid">
           <div class="card p-4">
-            <h5 class="card-title">Nombre d'utilisateur activer par equipe </h5>
-            <canvas baseChart [datasets]="datasets" [labels]="labels" [options]="options" [chartType]="type">
+            <h5 class="card-title">Nombre d'utilisateurs actifs par equipe </h5>
+            <canvas
+              baseChart [datasets]="datasets" [labels]="labels" [options]="options" [chartType]="type">
             </canvas>
           </div>
         </div>

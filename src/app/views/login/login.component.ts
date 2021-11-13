@@ -35,17 +35,23 @@ export class LoginComponent implements OnInit{
             console.log(res);
             this.user=res;
             this.token=res.token;
+
     },
     (err: any)=>{console.log(err)
       this.message="Username or password incorrect"
     },
     ()=>{
+      if (this.user.situation!=='enabled'){
+        alert("vous avez été bloqué contacter le service client")
+        this.router.navigate(['/login'])
+      }else{
       localStorage.setItem("token",this.token);
       localStorage.setItem("id",this.user.id)
       let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
       localStorage.setItem('roles',index);
 
       console.log(index)
+
       if (index===0){
       this.router.navigate(['/dashboard']);
       }else{
@@ -53,6 +59,7 @@ export class LoginComponent implements OnInit{
 
       }
     }
+        }
       );
   }
   }

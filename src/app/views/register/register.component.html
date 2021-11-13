@@ -26,7 +26,7 @@
                   </div>
                   <input type="text"[(ngModel)]="signup.prenom" class="form-control" placeholder="lastname" autocomplete="username" required>
                 </div>
-               
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
@@ -78,15 +78,15 @@
                     <option value="" disabled selected>Select your type</option>
 
                     <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
-                </select>        
+                </select>
               </div>
               <label> image</label><br>
- 
+
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
                 </div>
-                <input #img (change)="uploadImage(img)" type="file"  title="image CIN" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">   
+                <input #img (change)="uploadImage(img)" type="file"  title="image CIN" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
 
               </div>
               <label>CIN image</label><br>
@@ -94,23 +94,23 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
                 </div>
-                <input #img (change)="uploadImageCin(img)" type="file"  title="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">   
+                <input #img (change)="uploadImageCin(img)" type="file"  title="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
 
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-list"></i></span>
                 </div>
-                <select (change)="onChangeEquipe($event.target.value)">
-                  <option value="" disabled selected>Select your equipe</option>
+                <select (change)="onChangeEquipe($event)">
+                  <option value="" disabled selected>slectionnez equipe</option>
                   <option *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
-                </select>  
-                  
-              </div>  
+                </select>
+
+              </div>
                 <button type="button"(click)="regitre()" class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>
-            
+
           </div>
         </div>
       </div>

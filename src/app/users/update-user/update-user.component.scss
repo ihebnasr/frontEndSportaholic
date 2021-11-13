@@ -7,44 +7,48 @@
   opacity: inherit;
 
 }
+#body{
+  position: relative;
+  right: 10%;
+}
+#nav,#sid{
+  position: relative;
+
+}
 #carte{
 
-  background-size: inherit;
   width: 500px;
   height:250px;
   position: relative;
   background-repeat: no-repeat;
 }
-#cartename{
-  width: 10px;
-  height: 10px;
-  position: relative  ;
-  top: 20px;
-  left: 20px;
-  font-weight: bold;
-  color: red;
-}
+
+
 #image{
 
   position: relative;
-  top: 70px;
+  top: 80px;
   left: 20px;
 }
 #nom,#prenom,#adress{
 
-  top: 90px;
-  left: 20px;
+  top: 0px;
+  left: 140px;
   position: relative  ;
   font-weight: bold;
   font-size: large;
-  color: white;
+  color:black ;
+  opacity: inherit;
+  filter: drop-shadow(5px 5px 5px #000000);
+
+
 }
 
 
 #codeqr{
-  width: 100px;
+  width: 125px;
   height: 100px;
   position: relative;
-  bottom: 75px;
-  left: 400px;
+  bottom: 80px;
+  left: 385px;
 }

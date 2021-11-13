@@ -21,6 +21,7 @@ export class UpdateUserComponent implements OnInit {
   correctionLevel:any;
   qrCodeValue:any
   carte=new CarteModele();
+  age:any;
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.username)
     console.log("hello")
@@ -44,6 +45,8 @@ export class UpdateUserComponent implements OnInit {
         this.user = res;
         this.user.image = atob(this.user.image);
         this.user.equipe.logo = atob(this.user.equipe.logo);
+        var timeDiff = Math.abs(Date.now() - new Date(this.user.dateNais).getTime());
+        this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
       } ,
       error => {
         console.log(error);
@@ -82,14 +85,12 @@ export class UpdateUserComponent implements OnInit {
   @ViewChild('content',{static: true})el!:ElementRef<HTMLImageElement>
  generatePDF(){
     html2canvas(this.el.nativeElement).then((canvas)=>{
-          const imageData=canvas.toDataURL('image/jpeg');
-          const pdf= new jsPDF({
-            orientation: 'portrait',
-          });
+          const imageData=canvas.toDataURL('image/jpeg', 1.0);
+          const pdf= new jsPDF('p', 'mm');
           const imageProps=pdf.getImageProperties(imageData);
           const pdfw=pdf.internal.pageSize.getWidth();
           const pdfh=(imageProps.height* pdfw)/imageProps.width;
-          pdf.addImage(imageData,'PNG',0,0,pdfw,pdfh);
+          pdf.addImage(imageData,'JPEGS', 0,0, 130, 80);
           pdf.save('carte.'+this.carte.nomCarte+".pdf")
 
     })

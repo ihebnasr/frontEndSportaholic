@@ -5,6 +5,7 @@ import {PartieService} from '../../Service/partie.service';
 import {UserService} from '../../Service/user.service';
 import {BlocService} from '../../Service/bloc.service';
 import {ActivatedRoute} from '@angular/router';
+import {BlocPartieService} from '../../Service/bloc-partie.service';
 
 @Component({
   selector: 'app-add-resevation',
@@ -14,15 +15,13 @@ import {ActivatedRoute} from '@angular/router';
 export class AddResevationComponent implements OnInit {
   user=new SignUpModel();
   partie:any;
-  bloc=new BlocModel();
+  bloc:any;
   time:any;
-  constructor(private partieService:PartieService, private userService:UserService, private blocService:BlocService, private router:ActivatedRoute) { }
+  constructor(private partieService:PartieService, private userService:UserService, private blocPartieService:BlocPartieService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getUser();
     this.getPartieId(this.router.snapshot.params.id)
-    this.getblocstade(this.partie.stade.id)
-
   }
   getUser(){
     return this.userService.getUserid(localStorage.getItem('id')).subscribe(
@@ -36,22 +35,23 @@ export class AddResevationComponent implements OnInit {
   getPartieId(id){
     this.partieService.getPartieId(id).subscribe(
       (res:any)=>{
-        console.log(res)
         this.partie=res
-     this.time=this.partie.date.substring(11,16)
+        this.getbloc(this.partie.id)
+        this.time=this.partie.date.substring(11,16)
           this.partie.date=this.partie.date.substring(0,10)
           this.partie.equipeLocaux.logo = atob(this.partie.equipeLocaux.logo);
           this.partie.equipeVisiteur.logo = atob(this.partie.equipeVisiteur.logo);
           this.partie.equipeVisiteur.logo = atob(this.partie.equipeVisiteur.logo);
 
-      },error => console.log(error),
+        },error => console.log(error),
       () => {
 
       });
   }
-  getblocstade(id){
-    return this.blocService.getStadebloc(id).subscribe(
+  getbloc(id){
+    return this.blocPartieService.getBlocPartie(id).subscribe(
       (res:any)=>{
+
         this.bloc=res;
         console.log(this.bloc)
       }
