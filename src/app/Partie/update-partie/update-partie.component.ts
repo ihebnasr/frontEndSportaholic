@@ -41,7 +41,7 @@ export class UpdatePartieComponent implements OnInit {
       });
   }
   getbloc(id){
-    return this.blocPartieService.getBlocPartie(id).subscribe(
+    return this.blocService.getStadebloc(id).subscribe(
       (res:any)=>{
 
         this.bloc=res;

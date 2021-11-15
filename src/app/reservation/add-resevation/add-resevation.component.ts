@@ -4,8 +4,9 @@ import {BlocModel} from '../../modele/bloc.model';
 import {PartieService} from '../../Service/partie.service';
 import {UserService} from '../../Service/user.service';
 import {BlocService} from '../../Service/bloc.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BlocPartieService} from '../../Service/bloc-partie.service';
+import {ReservationService} from '../../Service/reservation.service';
 
 @Component({
   selector: 'app-add-resevation',
@@ -17,7 +18,8 @@ export class AddResevationComponent implements OnInit {
   partie:any;
   bloc:any;
   time:any;
-  constructor(private partieService:PartieService, private userService:UserService, private blocPartieService:BlocPartieService, private router:ActivatedRoute) { }
+  reservation:any;
+  constructor(private route:Router,private reservationService:ReservationService, private partieService:PartieService, private userService:UserService, private blocPartieService:BlocPartieService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -31,7 +33,6 @@ export class AddResevationComponent implements OnInit {
       }
     )
   }
-
   getPartieId(id){
     this.partieService.getPartieId(id).subscribe(
       (res:any)=>{
@@ -54,6 +55,18 @@ export class AddResevationComponent implements OnInit {
 
         this.bloc=res;
         console.log(this.bloc)
+      }
+    )
+  }
+  reserve(id){
+
+    this.reservationService.addReservation(this.user.username,this.partie.id,id,{}).subscribe(
+      (res:any)=>{
+        console.log(res)
+      },error => console.log(error),
+      () => {
+        this.route.navigate(['/Partie/listPartieUser'])
+
       }
     )
   }

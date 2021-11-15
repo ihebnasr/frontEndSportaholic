@@ -28,9 +28,9 @@
   </div>
 
   <div id="card" *ngFor= "let p of parties" class="card container" [style.backgroundImage]="'url(./assets/Triangulation-Stade-Sousse.jpg)'">
-    <div class="card-header">
+    <div class="card-header text-center">
       <div class="col-12 bg-50">
-        <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
+        <div class="quote-box2 wow">
           <h2> <a routerLink="/reservation/addReservation/{{p.id}}"> {{p.categroie.nom}} </a></h2>
         </div>
       </div>

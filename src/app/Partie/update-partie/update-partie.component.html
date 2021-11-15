@@ -28,9 +28,11 @@
       </div>
     </div>
   </div>
-  <div  *ngFor="let b of bloc ; let index = index" class="card-body">
-    <span>nom du bloc :  </span>
-    <h2>  <a routerLink="/partie/addBlocPartie/{{partie.id}}/{{b.id}}">  {{b.nom}}</a></h2>
+
+
 </div>
 
+<div class="card container" *ngFor="let b of bloc ; let index = index" >
+  <span>nom du bloc :  </span>
+  <h2>  <a routerLink="/partie/addBlocPartie/{{partie.id}}/{{b.id}}">  {{b.nom}}</a></h2>
 </div>

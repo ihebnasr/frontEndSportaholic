@@ -28,10 +28,10 @@
 </div>
 
   <div id="card" *ngFor= "let p of parties" class="card container" [style.backgroundImage]="'url(./assets/Triangulation-Stade-Sousse.jpg)'">
-    <div class="card-header">
+    <div class="card-header text-center">
       <div class="col-12 bg-50">
-        <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
-          <h2>  <a routerLink="/reservation/addReservation/{{p.id}}">"> {{p.categroie.nom}} </a></h2>
+        <div class="quote-box2 wow " >
+          <h2>  <a routerLink="/reservation/addReservation/{{p.id}}"> {{p.categroie.nom}} </a></h2>
         </div>
       </div>
     </div>
@@ -50,6 +50,7 @@
         </div>
       </div>
     </div>
+
     <div id="equipeV"class="col-md-3 pl-2 pr-2">
       <div class="card text-center  bounceInRight" data-wow-delay=".20s"> <img  class=" profile"  src="{{p.equipeVisiteur.logo}}" alt="Card image">
         <div class="card-body mb-5">
