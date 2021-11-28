@@ -14,7 +14,7 @@ export class SignUpModel {
     type: any;
     equipe= new EquipeModel();
     image:any;
-    imageCin:any;
+    imageCIn:any;
     constructor(){}
 
 

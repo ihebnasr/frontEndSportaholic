@@ -7,6 +7,8 @@ import {time} from 'html2canvas/dist/types/css/types/time';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
+
 
 })
 export class HomeComponent implements OnInit {

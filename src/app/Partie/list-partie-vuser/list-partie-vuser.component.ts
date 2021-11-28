@@ -4,6 +4,7 @@ import {UserService} from '../../Service/user.service';
 import {SignUpModel} from '../../modele/SingUp.mode';
 import {BlocModel} from '../../modele/bloc.model';
 import {BlocService} from '../../Service/bloc.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-partie-vuser',
@@ -14,7 +15,7 @@ export class ListPartieVUserComponent implements OnInit {
   user=new SignUpModel();
   parties:any={};
   bloc=new BlocModel();
-  constructor(private partieService:PartieService, private userService:UserService, private blocService:BlocService) { }
+  constructor(private partieService:PartieService, private userService:UserService,private route:Router, private blocService:BlocService) { }
 
   ngOnInit(): void {
     this.getPartie();
@@ -28,7 +29,11 @@ export class ListPartieVUserComponent implements OnInit {
       }
     )
   }
+  logout() {
+    localStorage.removeItem('token');
+    this.route.navigate(['/']);
 
+  }
   getPartie(){
     this.partieService.getPartieVUser().subscribe(
       (res:any)=>{

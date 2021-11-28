@@ -5,10 +5,6 @@ export const navItems: INavData[] = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
   },
 
   {
@@ -18,7 +14,7 @@ export const navItems: INavData[] = [
   {
     name: 'les utilisateurs activent',
     url: '/users/userEnable',
-    icon: 'icon-user'
+    icon: 'fa fa-user'
 
   },
   {

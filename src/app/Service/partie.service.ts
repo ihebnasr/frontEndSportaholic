@@ -10,7 +10,7 @@ export class PartieService {
 
   constructor(private httpClient:HttpClient) { }
   getallPartie(){
-    return this.httpClient.get(URL+"getall",this.httpOptions)
+    return this.httpClient.get(URL+"getall")
   }
   addPartie(partie,id){
     return this.httpClient.post(URL+"new/"+id,partie,this.httpOptions)

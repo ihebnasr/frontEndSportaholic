@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {PartieService} from '../../Service/partie.service';
 import {UserService} from '../../Service/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-partie-user',
@@ -11,7 +12,7 @@ import {UserService} from '../../Service/user.service';
 export class ListPartieUserComponent implements OnInit {
   user:any;
   parties:any={};
-  constructor(private partieService:PartieService, private userService:UserService) { }
+  constructor(private partieService:PartieService, private userService:UserService, private route:Router) { }
 
   ngOnInit(): void {
     this.getPartie();
@@ -38,5 +39,10 @@ export class ListPartieUserComponent implements OnInit {
           element.equipeVisiteur.logo = atob(element.equipeVisiteur.logo);
         })
       });
+  }
+  logout() {
+    localStorage.removeItem('token');
+    this.route.navigate(['/']);
+
   }
 }

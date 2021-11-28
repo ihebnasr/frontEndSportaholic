@@ -29,6 +29,7 @@ export class AddResevationComponent implements OnInit {
     return this.userService.getUserid(localStorage.getItem('id')).subscribe(
       (res:any)=>{
         this.user=res
+        this.user.image=atob(this.user.image)
         console.log(this.user)
       }
     )
@@ -63,12 +64,18 @@ export class AddResevationComponent implements OnInit {
     this.reservationService.addReservation(this.user.username,this.partie.id,id,{}).subscribe(
       (res:any)=>{
         console.log(res)
-      },error => console.log(error),
+        alert("Reservation réussite")
+      },error =>{ console.log(error)
+      alert("erreur internal serveur")},
       () => {
         this.route.navigate(['/Partie/listPartieUser'])
 
       }
     )
   }
+  logout() {
+    localStorage.removeItem('token');
+    this.route.navigate(['/']);
 
+  }
 }

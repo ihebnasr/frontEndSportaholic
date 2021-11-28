@@ -6,7 +6,7 @@ import {pipe} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
 })
 export class LoginComponent implements OnInit{
   logIn= new LoginModel();
@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit{
 
   login(){
     if(this.logIn.userValidate){
+      this.logIn.username.Lower
+      this.logIn.password.Lower
       this.loginService.login(this.logIn).subscribe(
         (res: any) => {
             console.log("User is logged in");

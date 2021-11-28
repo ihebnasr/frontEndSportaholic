@@ -7,7 +7,7 @@ import { LoginService } from '../../Service/login.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'register.component.html'
+  templateUrl: 'register.component.html',
 })
 export class RegisterComponent {
   signup= new SignUpModel();
@@ -15,7 +15,7 @@ export class RegisterComponent {
   selected=[];
   types=["abonne","public","jornalisme","arbitre"];
   image:any;
-  imageCin:any
+  imageCIn:any
   num:any;
   constructor(private loginService:LoginService, private router: Router, private equipeService:EquipeService ) { }
   ngOnInit(): void {
@@ -50,21 +50,21 @@ uploadImage(image){
     }
   }
 }
-uploadImageCin(imageCin){
+uploadImageCin(imageCIn){
   let reader = new FileReader();
-  if(imageCin.files.length!==0) {
-    reader.readAsDataURL(imageCin.files[0]);
+  if(imageCIn.files.length!==0) {
+    reader.readAsDataURL(imageCIn.files[0]);
     reader.onload = e => {
-      this.imageCin = reader.result;
-      this.signup.imageCin=btoa(this.imageCin);
-      //this.testImage=atob(this.cv.image)
+      this.imageCIn = reader.result;
+      this.signup.imageCIn=btoa(this.imageCIn);
     }
   }
 }
 regitre(){
 
   if(this.signup.registerValidation){
-
+ this.signup.username.Lower
+    this.signup.password.Lower
   this.loginService.register(this.signup).subscribe(
     (res:any)=>{
       console.log(res);

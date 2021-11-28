@@ -7,11 +7,13 @@ import {CarteModele} from '../../modele/Carte.modele';
 import {jsPDF }from "jspdf";
 import html2canvas from 'html2canvas';
 
+
 @Component({
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
-  styleUrls: ['./update-user.component.scss']
+  styleUrls: ['./update-user.component.scss'],
+
 })
 export class UpdateUserComponent implements OnInit {
 
@@ -25,6 +27,7 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.username)
     console.log("hello")
+
 
   }
   getCarte(id){
@@ -45,6 +48,9 @@ export class UpdateUserComponent implements OnInit {
         this.user = res;
         this.user.image = atob(this.user.image);
         this.user.equipe.logo = atob(this.user.equipe.logo);
+        this.user.imageCIn = atob(this.user.imageCIn);
+
+
         var timeDiff = Math.abs(Date.now() - new Date(this.user.dateNais).getTime());
         this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
       } ,
