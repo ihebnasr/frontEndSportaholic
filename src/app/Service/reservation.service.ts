@@ -18,7 +18,7 @@ export class ReservationService {
   }
 
   getResForUser(username){
-    return this.httpClient.get(URL+"getResUser/"+username,this.httpOptions)
+    return this.httpClient.get(URL+"getResUserDate/"+username,this.httpOptions)
 
   }
   addReservation(idU,idP,idB,reservation){

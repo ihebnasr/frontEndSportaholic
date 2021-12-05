@@ -12,9 +12,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./list-partie-vuser.component.scss']
 })
 export class ListPartieVUserComponent implements OnInit {
-  user=new SignUpModel();
+  user:any;
   parties:any={};
   bloc=new BlocModel();
+  isShown:boolean=false
   constructor(private partieService:PartieService, private userService:UserService,private route:Router, private blocService:BlocService) { }
 
   ngOnInit(): void {
@@ -26,6 +27,15 @@ export class ListPartieVUserComponent implements OnInit {
       (res:any)=>{
         this.user=res
         console.log(this.user)
+        this.user.image=atob(res.image)
+        let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
+        if(index===0){
+          this.isShown=true
+        }else {
+          this.isShown=false
+        }
+        console.log(this.isShown)
+
       }
     )
   }

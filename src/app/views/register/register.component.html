@@ -1,5 +1,5 @@
 <div class="app-body">
-  <main class="main d-flex align-items-center">
+  <main class="main  align-items-center">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
@@ -7,107 +7,113 @@
             <div class="card-body p-4">
               <form>
                 <h1>S'inscrire </h1>
-                <p class="text-muted">Créer votre compte</p>
+                <p class="text-value-lg">Créer votre compte</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                    <span class="input-group-text"> <i class="fa fa-drivers-license fa-2x "></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="signup.cin" class="form-control" placeholder="N°CIN" autocomplete="username" required>
+                  <input  #name="ngModel" type="text"[(ngModel)]="signup.cin" class="form-control" placeholder="N°CIN" autocomplete="username" required>
+                  <div *ngIf="signup.cin.invalid && (signup.cin.dirty || signup.cin.touched)"
+                       class="alert">
+
+                    <div *ngIf="signup.cin.errors">
+                      Name is required.
+                    </div>
+                </div>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-user fa-2x"></i></span>
                   </div>
                   <input type="text"[(ngModel)]="signup.nom" class="form-control" placeholder="Nom" autocomplete="username" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-user fa-2x"></i></span>
                   </div>
                   <input type="text"[(ngModel)]="signup.prenom" class="form-control" placeholder="Prenom" autocomplete="username" required>
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-user fa-2x"></i></span>
                   </div>
                   <input type="text"[(ngModel)]="signup.username" class="form-control" placeholder="Nom d'utililsateur" autocomplete="username" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                    <span class="input-group-text"><i class="fa fa-lock fa-2x"></i></span>
                   </div>
                   <input type="password"[(ngModel)]="signup.password" class="form-control" placeholder="Mot de passe" autocomplete="username" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                    <span class="input-group-text"><i class="fa fa-lock fa-2x"></i></span>
                   </div>
                   <input type="password"[(ngModel)]="signup.confirmPassword" class="form-control" placeholder="Cofirmer Mot de passe" autocomplete="username" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-phone"></i></span>
+                    <span class="input-group-text"><i class="fa fa-phone fa-2x"></i></span>
                   </div>
-                  <input type="test"[(ngModel)]="signup.phoneNumber" class="form-control" placeholder="GSM" autocomplete="username" required>
+                  <input type="text"[(ngModel)]="signup.phoneNumber" class="form-control" placeholder="GSM" autocomplete="username" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-calendar"></i></span>
+                    <span class="input-group-text"><i class="fa fa-calendar fa-2x"></i></span>
                   </div>
-                  <input type="date"[(ngModel)]="signup.birthday" class="form-control" placeholder="Date de naissance " autocomplete="username" required>
+                  <input type="date"[(ngModel)]="signup.birthday"  placeholder="Date de naissance " autocomplete="username" required>
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+                    <span class="input-group-text"><i class="fa fa-envelope fa-2x"></i></span>
                   </div>
                   <input type="text"[(ngModel)]="signup.email" class="form-control" placeholder="Email" autocomplete="email" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-home"></i></span>
+                    <span class="input-group-text"><i class="fa fa-map fa-2x"></i></span>
                   </div>
-                  <input type="test"[(ngModel)]="signup.address" class="form-control" placeholder="Address" autocomplete="address" required>
+                  <input type="text"[(ngModel)]="signup.address" class="form-control" placeholder="Address" autocomplete="address" required>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group  mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-list"></i></span>
+                    <span class="input-group-text"><i class="fa fa-list fa-2x"></i></span>
                   </div>
-                  <select [(ngModel)]="signup.type"(ngModelChange)="onChange($event)">
-                    <option value="" disabled selected>selectionner votre type</option>
-
-                    <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
+                  <select   class=" text-value-lg text-secondary "(change)="onChange($event)">
+                    <option  class=" text-value-lg"value="" disabled selected>selectionner votre type</option>
+                    <option  class=" text-value-lg"*ngFor="let t of types" value="{{t}}">{{t}}</option>
                 </select>
               </div>
-              <label> image</label><br>
 
-              <div class="input-group mb-3">
+              <div class="input-group mb-3 mx-auto">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
+                  <label class=" mb-3 text-value-lg"> Votre image</label><br>
                 </div>
-                <input #img (change)="uploadImage(img)" type="file"  title="image CIN" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
-
-              </div>
-              <label>CIN image</label><br>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
-                </div>
-                <input #img (change)="uploadImageCin(img)" type="file"  title="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
+                <input #img (change)="uploadImage(img)" type="file"  class="form-control-file form-group-lg text-value-lg text-secondary"  title="image CIN" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="image" name="file-input">
 
               </div>
-              <div class="input-group mb-3">
+                <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-list"></i></span>
+                    <label class="text-value-lg"> Votre image CIN</label>
                 </div>
-                <select (change)="onChangeEquipe($event)">
-                  <option value="" disabled selected>slectionner votre equipe</option>
-                  <option *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
+                <input #img (change)="uploadImageCin(img)" type="file" class="form-control-file text-value-lg text-secondary" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="CIN" >
+
+              </div>
+
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-list fa-3x"></i></span>
+                </div>
+                <select class=" text-value-lg text-secondary"(change)="onChangeEquipe($event)">
+                  <option class=" text-value-lg" value="" disabled selected>slectionner votre equipe</option>
+                  <option class=" text-value-lg" *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
                 </select>
 
               </div>
-                <button type="button"(click)="regitre()" class="btn btn-block btn-success">Créer compte </button>
+
+                <button type="submit"(click)="regitre()" class="btn btn-block btn-success text-value-lg ">Créer compte </button>
               </form>
             </div>
 

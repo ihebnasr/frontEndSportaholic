@@ -133,20 +133,23 @@
               <div class="tg-colhalf">
                 <ul>
                   <li>
-                    <a href="#">Mes réservations</a>
+                    <a href="/#/reservation/mesRservations">Mes réservations</a>
                     <!--<ul class="tg-dropdown-menu">
                       <li><a href="fixtures.html">fixtures</a></li>
                       <li><a href="fixturedetail.html">fixture detail</a></li>
                     </ul>-->
                   </li>
                   <li>
-                    <a href="#">Profile</a>
+                    <a   href="#" role="button" aria-haspopup="true" aria-expanded="false"  (click)="false">Profile</a>
+
                     <ul class="tg-dropdown-menu">
 
 
-                      <li><a  href="#"><i class="fa fa-user"></i> Mon profile</a></li>
-                      <li><a  href="#"><i class="fa fa-wrench"></i> Parametter</a></li>
+
+                      <li><a  routerLink="/users/userProfile"><i class="fa fa-user"></i> Mon profile</a></li>
+                      <li *ngIf="this.isShown"><a  routerLink="/dashboard"><i class="fa fa-tachometer"></i> dashboard</a></li>
                       <li> <a class="tg-btn " (click)="logout()"><span><i class="fa fa-lock"></i> Déconnexion</span></a>
+
 
                       </li>
                     </ul>
@@ -286,7 +289,7 @@
                                       </ul>
                                     </div>
                                     <div class="tg-btnsbox">
-                                      <span><a class="tg-btn" (click)="reserve(b.bloc.id)">Reserver une place</a></span>
+                                      <a class="tg-btn" (click)="reserve(b.bloc.id)"><span>Reserver une place</span></a>
 
                                     </div>
                                   </div>

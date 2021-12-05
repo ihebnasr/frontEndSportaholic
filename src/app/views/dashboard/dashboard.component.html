@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-info">
-        <div class="card-body pb-2">
+        <div class="card-body pb-0">
           <button type="button"routerLink="/users/userEnable" class="btn btn-transparent p-0 float-right" >
-            <i class="icon-user"></i>
+            <i class="fa fa-users fa-2x"></i>
           </button>
-          <div class="text-value">{{nbrUserEnabled}}</div>
-          <div>Nombre d'utilisateurs actifs </div>
+          <div ><h4>{{nbrUserEnabled}}</h4></div>
+          <div class="tg-contentbox"><h5>Nombre d'utilisateurs actifs </h5></div>
         </div>
 
       </div>
@@ -17,11 +17,11 @@
         <div class="card-body pb-0">
           <div class="btn-group float-right" >
             <button type="button" routerLink="/users/userNotEnable"class="btn btn-transparent p-0 float-right" >
-              <i class="icon-lock"></i>
+              <i class="fa fa-user-secret fa-2x"></i>
             </button>
           </div>
-          <div class="text-value">{{nbrUserNotEnabled}}</div>
-          <div>Nombre d'utilisateurs non actifs  </div>
+          <div ><h4>{{nbrUserNotEnabled}}</h4></div>
+          <div class="tg-contentbox "><h5>Nombre d'utilisateurs non actifs </h5>  </div>
         </div>
       </div>
     </div><!--/.col-->
@@ -30,39 +30,33 @@
         <div class="card-body pb-0">
           <div class="btn-group float-right" >
             <button type="button"  routerLink="/equipes/allequipe" class="btn btn-transparent  p-0 float-right" >
-              <i class="icon-people"></i>
+              <i class="fa fa-flag-o fa-2x" aria-hidden="true"></i>
             </button>
 
           </div>
-          <div class="text-value">{{nbrEquipe}}</div>
-          <div>Nombre d'equipes</div>
+          <div ><h4>{{nbrEquipe}}</h4></div>
+          <div class="tg-contentbox"><h5>Nombre d'equipes</h5></div>
         </div>
       </div>
     </div><!--/.col-->
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-danger">
         <div class="card-body pb-0">
-          <div class="btn-group float-right" dropdown>
-            <button type="button"routerLink="/stade/listStade"class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
-              <i class="icon-settings"></i>
+          <div class="btn-group float-right" >
+            <button type="button"routerLink="/stade/listStade"class="btn btn-transparent  p-0" >
+              <i class="fa fa-futbol-o fa-2x"></i>
             </button>
 
           </div>
-          <div class="text-value">{{nbrStade}}</div>
-          <div>Nombre de stades</div>
+          <div ><h4>{{nbrStade}}</h4></div>
+          <div class="tg-contentbox"><h5>Nombre de stades</h5></div>
         </div>
       </div>
     </div><!--/.col-->
   </div><!--/.row-->
-  <div class="card">
-    <div class="card-header">
-    Statistique
-      <div class="card-header-actions">
+  <div class="  tg-haslayout">
 
-
-      </div>
-    </div>
-      <div class="row">
+      <div class="row ">
         <div class="container-fluid">
           <div class="card p-4">
             <h5 class="card-title">Nombre d'utilisateurs actifs par equipe </h5>

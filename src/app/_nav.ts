@@ -2,9 +2,10 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
+    name: 'tableau de bord',
     url: '/dashboard',
-    icon: 'icon-speedometer',
+    icon: 'fa fa-tachometer',
+
   },
 
   {
@@ -12,16 +13,22 @@ export const navItems: INavData[] = [
     name: 'Users',
       },
   {
+    name: "liste des inscriptions",
+    url: '/users/newInscrit',
+    icon: 'fa fa-user'
+  },
+  {
     name: 'les utilisateurs activent',
     url: '/users/userEnable',
-    icon: 'fa fa-user'
+    icon: 'fa fa-user '
 
   },
   {
-    name: "lister les utilisateurs n'est pas activés",
+    name: "les utilisateurs n'est pas activés",
     url: '/users/userNotEnable',
-    icon: 'icon-user'
+    icon: 'fa fa-user'
   },
+
   {
     title: true,
     name: 'Stade'
@@ -29,31 +36,40 @@ export const navItems: INavData[] = [
   {
     name:'Liste des stades',
     url:'/stade/listStade',
-    icon:''
+    icon:'fa fa-futbol-o'
   },
   {
-    name:'ajouter stade',
+    name:'Ajouter stade',
     url:'/stade/addStade',
-    icon:'far fa-futbol'
+    icon:'fa fa-futbol-o'
   },
   {
     title: true,
     name: 'equipes'
   },
   {
-    name: 'liste des equipes',
+    name: 'Liste des equipes',
     url: '/equipes/allequipe',
-    icon: 'icon-user'
+    icon: 'fa fa-futbol-o'
 
+  },{
+    name:'Ajouter equipe',
+    url: '/equipes/addEquipe',
+    icon:'fa fa-futbol-o'
   },
   {
     title: true,
     name: 'carte'
   },
   {
-    name: 'liste des cartes',
+    name: 'Liste des cartes',
     url: '/carte/allCarte',
-    icon: 'fa fa-drivers-license'
+    icon: 'fa fa-credit-card'
+  },
+  {
+    name: 'Ajouter cartes',
+    url: '/carte/addCarte',
+    icon: 'fa fa-credit-card'
 
   },
   {
@@ -61,15 +77,15 @@ export const navItems: INavData[] = [
     name: 'Partie'
   },
   {
-    name: 'liste des partie',
+    name: 'Liste des partie',
     url: '/partie/listPartie',
-    icon: 'fa fa-drivers-license'
+    icon: 'fa fa-futbol-o'
 
   },
   {
-    name: 'ajouter partie',
+    name: 'Ajouter partie',
     url: '/partie/addPartie',
-    icon: 'fa fa-drivers-license'
+    icon: 'fa fa-futbol-o'
 
   },
   {
@@ -77,9 +93,9 @@ export const navItems: INavData[] = [
     name: 'Resevation'
   },
   {
-    name: 'liste des Reservations',
+    name: 'Liste des Reservations',
     url: '/reservation/listReservation',
-    icon: 'fa fa-drivers-license'
+    icon: 'fa fa-ticket'
   }
 
 ];

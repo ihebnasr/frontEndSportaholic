@@ -2,7 +2,7 @@
 <label class="form-label"><h2>Filtrer utilisateur </h2> </label>
 <div class="input-group">
   <div class="form-outline">
-    <select class="form-control"(change)="onChangeEquipe($event)">
+    <select class="form-control-lg text-value-lg"(change)="onChangeEquipe($event)">
       <option value="" disabled selected>slectionnez equipe</option>
       <option *ngFor="let e of equipe" [value]="e.nomEquipe">{{e.nomEquipe}}</option>
     </select>   </div>
@@ -11,23 +11,31 @@
   </button><br>
 
 </div>
+<br>
+<div class=" input-group">
+  <div class="form-outline">
+    <input type="text" class="form-group" placeholder="Nom d'utilisateur..." [(ngModel)]="userFiltre.username"><br>
+  </div></div>
 <label class="form-label"><h2>liste des utilisateur active  </h2> </label>
-<table class="table table-responsive-sm table-hover table-outline mb-0">
-    <thead class="thead-light">
+<table class="table table-responsive-sm  table-active">
+    <thead class="thead-dark ">
       <tr>
       <!--  <th class="text-center"><i class="icon-people"></i></th>-->
-      <th class="text-center"><i class="icon-people"></i></th>
-      <th>cin</th>
-        <th class="text-center">nom</th>
-        <th>prenom</th>
-        <th class="text-center">username</th>
-        <th>phoneNumber</th>
-        <th>type</th>
-        <th>sutiation</th>
+      <th class="text-center"><i class="fa fa-image fa-2x"></i></th>
+      <th class="text-value-lg">cin</th>
+        <th class="text-value-lg">nom</th>
+        <th class="text-value-lg">prenom</th>
+        <th class="text-value-lg">username</th>
+        <th class="text-value-lg">phoneNumber</th>
+        <th class="text-value-lg">type</th>
+        <th class="text-value-lg">sutiation</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor= "let user of listUserEnable ">
+      <tr *ngFor= "let user of listUserEnable | paginate:{ id: 'foo',
+                                                      itemsPerPage: 5 ,
+                                                      currentPage: page,
+                                                      totalItems: totlaRecord }| filterBy : userFiltre">
         <td class="text-center">
           <div class="avatar">
             <img src="{{user.image}}" class="img-avatar" >
@@ -35,39 +43,41 @@
           </div>
         </td>
         <td>
-          <div>{{user.cin}}</div>
+          <div class="text-value-lg">{{user.cin}}</div>
 
         </td>
 
         <td>
-          <div class="clearfix">
-            <div class="float-left">
+          <div class="text-value-lg">
+
               {{user.nom}}
-            </div>
           </div>
 
         </td>
 
         <td>
-          <div >{{user.prenom}}</div>
+          <div class="text-value-lg" >{{user.prenom}}</div>
         </td>
 
         <td >
-          <div><a routerLink="/users/updateUser/{{user.username}}" >  {{user.username}}</a> </div>
+          <div class="text-value-lg"><a routerLink="/users/updateUser/{{user.username}}" >  {{user.username}}</a> </div>
         </td>
         <td>
-          <div>{{user.numTel}}</div>
+          <div class="text-value-lg">{{user.numTel}}</div>
 
 
         </td>
         <td >
-          <div>{{user.type}}</div>
+          <div class="text-value-lg">{{user.type}}</div>
          </td>
         <td>
 
-              <div>{{user.situation}}</div>
+              <div class="text-value-lg">{{user.situation}}</div>
 
         </td>
       </tr>
     </tbody>
   </table>
+<div class="text-value-lg d-flex align-items-center" >
+  <pagination-controls class="center-block" id="foo" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+</div>

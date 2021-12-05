@@ -30,4 +30,13 @@ export class UserService {
   getUserEquipeEnable(nomEquipe){
     return this.httpClient.get(URL+"getUserNomEquipeEnable/"+nomEquipe, this.httpOptions);
   }
+  addrole(username,role){
+    return this.httpClient.put(URL+"editRoleUser/"+username,role,this.httpOptions)
+  }
+  deleteRole(username,rolename){
+  return this.httpClient.put(URL+"deleteRoleUser/"+username+"/"+rolename,{},this.httpOptions)
+  }
+  inscrit(){
+    return this.httpClient.get(URL+"getInscription",this.httpOptions)
+  }
 }

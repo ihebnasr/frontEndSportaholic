@@ -13,6 +13,8 @@ export class ListStadeComponent implements OnInit {
   constructor(private stadeService: StadeService,private route: ActivatedRoute ,private blocService:BlocService) { }
   stade: any=[];
   bloc:any=[];
+  totlaRecord: string;
+  page:number=1;
   ngOnInit(): void {
 
     this.getSatde();
@@ -24,6 +26,7 @@ export class ListStadeComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.stade = res;
+        this.totlaRecord=res.length
       },error => (error),
       () => {
       }

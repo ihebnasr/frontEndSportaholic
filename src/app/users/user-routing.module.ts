@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListUserComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import {ListUserNotEnableComponent} from './list-user-not-enable/list-user-not-enable.component';
+import {AdminProfileComponent} from './admin-profile/admin-profile.component';
+import {NewInscritComponent} from './new-inscrit/new-inscrit.component';
 
 
 const routes: Routes = [
@@ -36,7 +38,21 @@ const routes: Routes = [
           data: {
             title: 'list users not enable'
         }
-        }
+        },
+        {
+          path: 'adminProfile',
+          component: AdminProfileComponent,
+          data: {
+            title: 'Profile administrateur'
+          }
+        },
+        {
+          path: 'newInscrit',
+          component: NewInscritComponent,
+          data: {
+            title: 'inscription'
+          }
+        },
       ]
     }
   ];

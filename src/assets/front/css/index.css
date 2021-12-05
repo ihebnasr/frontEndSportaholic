@@ -5,6 +5,7 @@ Author: Templates On Web
 Author URI: http://templateonweb.com/
 Licence: <a href="http://www.templateonweb.com/terms.php?v=content&contentid=152">Website Template Licence</a>
 */
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
 body{
 font-family: 'Philosopher', sans-serif;
@@ -362,7 +363,6 @@ padding-bottom:40px;
 .related_1 h2 {
  color: #252C33;
 }
-@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 #related .col-item
 {
     border-radius: 5px;

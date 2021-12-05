@@ -6,32 +6,32 @@
           <div class="card mx-4">
             <div class="card-body p-4">
               <form>
-                <p class="text-muted">Create Equipe</p>
+                <p class="text-value-lg">Créer Stade</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                    <span class="input-group-text"> <i class="fa fa-drivers-license fa-2x"></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="stade.nom" class="form-control" placeholder="nom du stade" autocomplete="nom du stade" required>
+                  <input type="text"[(ngModel)]="stade.nom" class="form-control" placeholder="Nom du stade" autocomplete="nom du stade" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-map fa-2x"></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="stade.adresse" class="form-control" placeholder="adresse" autocomplete="adresse" required>
+                  <input type="text"[(ngModel)]="stade.adresse" class="form-control" placeholder="Adresse" autocomplete="adresse" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-sort-numeric-desc fa-2x"></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="stade.capacite" class="form-control" placeholder="capacite" autocomplete="capacite" required>
+                  <input type="text"[(ngModel)]="stade.capacite" class="form-control" placeholder="Capacité" autocomplete="capacite" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-futbol-o fa-2x"></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="stade.nbr_Bloc" class="form-control" placeholder="nombre du bloc" autocomplete="nombre du bloc" required>
+                  <input type="text"[(ngModel)]="stade.nbr_Bloc" class="form-control" placeholder="Nombre du bloc" autocomplete="nombre du bloc" required>
                 </div>
-                <button type="button"(click)="ajouterStade()" class="btn btn-block btn-success">add equipe</button>
+                <button type="button"(click)="ajouterStade()" class="btn btn-block btn-success text-value-lg">Créer Stade</button>
               </form>
             </div>
 

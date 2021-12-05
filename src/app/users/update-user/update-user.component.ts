@@ -24,6 +24,13 @@ export class UpdateUserComponent implements OnInit {
   qrCodeValue:any
   carte=new CarteModele();
   age:any;
+  role:any=[{
+    "id":1
+  },
+    {
+      "id": 2
+    }];
+  rolename="ROLE_ADMIN"
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.username)
     console.log("hello")
@@ -102,7 +109,24 @@ export class UpdateUserComponent implements OnInit {
     })
 
  }
+ ajouterRole(){
+    return this.userService.addrole(this.user.username,this.role).subscribe(
+      (res:any)=>{
+        console.log(res)
 
+      }
+    )
+
+}
+  suprimeRole(){
+    return this.userService.deleteRole(this.user.username,this.rolename).subscribe(
+      (res:any)=>{
+        console.log(res)
+
+      }
+    )
+
+  }
 
 }
 

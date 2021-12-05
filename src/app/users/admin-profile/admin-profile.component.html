@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="main-body">
+
+    <div class="row text-value-lg">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="{{user.image}}" alt="Admin" class="rounded-circle" width="150">
+              <div class=" text-value-lg">
+                <h4>{{user.nom}} {{user.prenom}}</h4>
+                <p class="text-secondary mb-1">{{user.type}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg">Nom d'utilisateur</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.username}}
+              </div>
+            </div>
+            <hr>
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg">Âge</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{age}}
+              </div>
+            </div><hr>
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.email}}
+              </div>
+            </div>
+            <hr>
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg ">GSM</h6>
+              </div>
+              <div class="col-sm-9  text-secondary">
+                {{user.numTel}}
+              </div>
+            </div>
+            <hr>
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg ">Equipe</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <div class="profile">
+                  <img src= "{{user.equipe.logo}}"class="img-avatar" alt="image profil" width="100" height="100">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row text-value-lg">
+              <div class="col-sm-3">
+                <h6 class="text-value-lg">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.address}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row gutters-sm">
+          <div class="col-sm-12 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center "><i class=" text-info text-value-lg">Image CIN</i></h6>
+                <small><div>
+                  <img src= "{{user.imageCIn}}" alt="image CIN" width="100" height="100">
+                </div></small>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <button type="button"(click)="generatePDF()" class="btn text-value-lg btn-success">PDF Carte</button>
+
+                <div #content>
+
+                  <div  id="carte" [style.backgroundImage]="'url('+ carte.modelCarte +')'">
+
+
+
+                    <div id="image" class="profile">
+                      <img src= "{{user.image}}"alt="image profil" width="100" height="110">
+                    </div>
+
+                    <div id="nom"> Nom : {{user.nom}}</div>
+                    <div id="prenom"> Prenom : {{user.prenom}}</div>
+                    <div id="adress"> Addresse : {{user.address}}</div>
+
+                  </div>
+
+                  <div id="codeqr" ><ngx-qrcode
+                    [elementType]="elementType"
+                    [errorCorrectionLevel]="correctionLevel"
+                    [value]="qrCodeValue"
+                    cssClass="bshadow"
+                    [width]="70"
+                    errorCorrectionLevel="H"
+                  ></ngx-qrcode>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

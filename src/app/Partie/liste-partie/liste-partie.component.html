@@ -1,21 +1,21 @@
 <div id="card" *ngFor= "let p of parties" class="card container" >
   <div class="card-header">
     <div class="col-12 bg-50">
-      <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
+      <div class="quote-box2 " >
         <h2> <a routerLink="/partie/updatePartie/{{p.id}}"> {{p.categroie.nom}} </a></h2>
       </div>
   </div>
   </div>
 <div  class="card-body">
     <div class="quote-box2 text-center ">
-      <h2>  {{p.stade.nom}} <br><span>{{p.date}} </span><br><span>{{p.time}} </span></h2><br>
+      <h2> <i class="fa fa-futbol-o"></i> {{p.stade.nom}} <br><span><i class="fa fa-calendar-check-o"></i>{{p.date}} </span><br><span><i class="fa fa-clock-o"></i>{{p.time}} </span></h2><br>
       <div class="quote-box2 text-center bounceInDown" data-wow-delay=".20s">
-        <h2>  nombre de reservation {{p.nbr_place}} </h2>
+        <h2><i class="fa fa-ticket"></i>  nombre de reservation {{p.nbr_place}} </h2>
       </div>
     </div>
   </div>
   <div  class="col-md-3 pr-2 pl-2">
-    <div class="card text-center  bounceInLeft" data-wow-delay=".20s"> <img class=" profile"  src="{{p.equipeLocaux.logo}}" alt="Card image">
+    <div class="card text-center  "> <img class=" profile"  src="{{p.equipeLocaux.logo}}" alt="Card image">
       <div class="card-body mb-5">
         <h4 class="card-title">{{p.equipeLocaux.nomEquipe}}</h4>
       </div>

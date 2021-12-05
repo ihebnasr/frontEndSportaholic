@@ -14,17 +14,16 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): boolean|UrlTree {
 
-    if (localStorage.getItem('token')===undefined) {
+    if (!this.authService.isLogin()) {
       alert('You are not allowed to view this page. You are redirected to login Page');
 
-      this.router.navigate(["/"],{ queryParams: { retUrl: route.url} });
+      this.router.navigate(["/login"],{ queryParams: { retUrl: route.url} });
       return false;
 
-      //var urlTree = this.router.createUrlTree(['login']);
-      //return urlTree;
+      var urlTree = this.router.createUrlTree(['login']);
+      return urlTree;
     }
 
     return true;
-  }
+  }}
 
-}

@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class ListPartieUserComponent implements OnInit {
   user:any;
   parties:any={};
+  isShown : boolean=false
   constructor(private partieService:PartieService, private userService:UserService, private route:Router) { }
 
   ngOnInit(): void {
@@ -23,6 +24,13 @@ export class ListPartieUserComponent implements OnInit {
       (res:any)=>{
           this.user=res
         this.user.equipe.logo=atob(this.user.equipe.logo)
+        let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
+        if(index===0){
+          this.isShown=true
+        }else {
+          this.isShown=false
+        }
+        console.log(this.isShown)
       }
     )
   }
@@ -40,6 +48,7 @@ export class ListPartieUserComponent implements OnInit {
         })
       });
   }
+
   logout() {
     localStorage.removeItem('token');
     this.route.navigate(['/']);

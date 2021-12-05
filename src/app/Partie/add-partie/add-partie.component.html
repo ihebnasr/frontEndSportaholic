@@ -1,24 +1,18 @@
 <form>
 <div id="card"  class="card container">
-  <div class="card-header">
-    <div class="col-12 bg-50">
-      <div class="quote-box2 wow bounceInDown" data-wow-delay=".20s">
-        <h2> categorie : <select  (change)="onChangeCategorie($event)">
-          <option value="" disabled selected>Sélectionnez catégorie</option>
-          <option  *ngFor="let c of categroie" [value]="c.id">{{c.nom}}</option>
-        </select></h2>
-      </div>
-    </div>
-  </div>
   <div  class="card-body">
-    <div class="quote-box2 text-center bounceInDown" data-wow-delay=".20s">
-      <h2>  stade: <br> <select  (change)="onChangeSatde($event)">
+    <div class="quote-box2 text-center ">
+      <h2> <i class="fa fa-navicon "></i> categorie :<br> <select  (change)="onChangeCategorie($event)">
+        <option value="" disabled selected>Sélectionnez catégorie</option>
+        <option  *ngFor="let c of categroie" [value]="c.id">{{c.nom}}</option>
+      </select></h2><br>
+      <h2> <i class="fa fa-futbol-o"></i> stade: <br> <select  (change)="onChangeSatde($event)">
         <option value="" disabled selected>Sélectionnez stade</option>
         <option  *ngFor="let s of stade" [value]="s.id">{{s.nom}}</option>
-      </select> <br><span>date : <input type="datetime-local"[(ngModel)]="partie.date" class="form-control" placeholder="date partie" autocomplete="date partie"  required>
+      </select> <br><span><i class="fa fa-calendar-check-o"></i>date : <input type="datetime-local"[(ngModel)]="partie.date" class="form-control" placeholder="date partie" autocomplete="date partie"  required>
  </span><br></h2><br>
-      <div class="quote-box2 text-center bounceInDown" data-wow-delay=".20s">
-        <h2>  nombre de reservation : <input type="text"[(ngModel)]="partie.nbr_place" class="form-control" placeholder="nombre de place" autocomplete="nombre de place" required>
+      <div class="quote-box2 text-center text-value-lg" >
+        <h2> <i class="fa fa-ticket"></i> nombre de reservation : <input type="number"[(ngModel)]="partie.nbr_place" class="form-control" placeholder="nombre de place" autocomplete="nombre de place" required>
         </h2>
       </div>
     </div>
@@ -26,7 +20,7 @@
   <div  class="col-md-3 pr-2 pl-2">
 
       <div class="card-body mb-5">
-        <h4 class="card-title">Equipe locaux: <select  (change)="onChangeEquipeL($event)">
+        <h4 class="card-title text-value-lg "><i class="fa fa-futbol-o"></i> Equipe local: <select  (change)="onChangeEquipeL($event)">
           <option value="" disabled selected>Sélectionnez l'equipe Locaux</option>
           <option  *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
         </select></h4>
@@ -34,13 +28,13 @@
   </div>
   <div id="equipeV"class="col-md-3 pl-2 pr-2">
       <div class="card-body mb-5">
-        <h4 class="card-title">equipe visiter: <select  (change)="onChangeEquipeV($event)">
+        <h4 class="card-title text-value-lg "><i class="fa fa-futbol-o"></i> Equipe visiteuse: <select  (change)="onChangeEquipeV($event)">
           <option value="" disabled selected>Sélectionnez l'equipe visiteur</option>
           <option  *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
         </select></h4>
     </div>
   </div>
+  <button type="button"(click)="addPartie()" class="btn btn-block btn-success text-value-lg">Ajouter partie </button>
 </div>
-  <button type="button"(click)="addPartie()" class="btn btn-block btn-success">ajouter partie </button>
 
 </form>

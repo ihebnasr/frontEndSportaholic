@@ -13,6 +13,10 @@ export class ListUserNotEnableComponent implements OnInit {
  users: Array<any>;
   equipe:any;
   nomEquipe:any;
+  totlaRecord: string;
+  page:number=1;
+  userFiltre: any = { username : '' };
+
   ngOnInit(): void {
     this.getUserNotEnable();
     this.getEquipe();
@@ -34,6 +38,7 @@ export class ListUserNotEnableComponent implements OnInit {
       (res: any) => {
 
         this.users = res ;
+        this.totlaRecord=res.length
         this.users.forEach(element => {
           element.image = atob(element.image);
 

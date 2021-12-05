@@ -15,6 +15,8 @@ import {ListPartieUserComponent} from './Partie/list-partie-user/list-partie-use
 import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-vuser.component';
 import {NewCodeComponent} from './codeConfirmation/new-code/new-code.component';
 import {AddResevationComponent} from './reservation/add-resevation/add-resevation.component';
+import {UserProfileComponent} from './users/user-profile/user-profile.component';
+import {ReservationUserComponent} from './reservation/reservation-user/reservation-user.component';
 
 export const routes: Routes = [
   {
@@ -66,6 +68,22 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'reservation/mesRservations',
+    component: ReservationUserComponent,
+    pathMatch: 'full',
+    data: {
+      title: 'mes reservations '
+    }
+  },
+  {
+    path: 'users/userProfile',
+    component: UserProfileComponent,
+    pathMatch: 'full',
+    data: {
+      title: 'User profile'
+    }
+  },
+  {
     path: 'login',
     component: LoginComponent,
     pathMatch: 'full',
@@ -94,38 +112,12 @@ export const routes: Routes = [
       title: 'dashboard'
     },
     children: [
-      {
-        path: 'base',
-        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
-      },
-      {
-        path: 'buttons',
-        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./views/chartjs/chartjs.module').then(m => m.ChartJSModule)
-      },
+
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
-      {
-        path: 'icons',
-        loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
-      },
-      {
-        path: 'notifications',
-        loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
-      },
-      {
-        path: 'theme',
-        loadChildren: () => import('./views/theme/theme.module').then(m => m.ThemeModule)
-      },
-      {
-        path: 'widgets',
-        loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
-      },
+
       {
         path: 'users',
         loadChildren : () => import('./users/user.module').then(m => m.UserModule)

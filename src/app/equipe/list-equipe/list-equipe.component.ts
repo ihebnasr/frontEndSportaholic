@@ -12,6 +12,10 @@ export class ListEquipeComponent implements OnInit {
 
   constructor(private equipeService: EquipeService) { }
   equipe: Array<any>;
+  totlaRecord: string;
+  page:number=1;
+  equipeFilter: any = { nomEquipe : '' };
+
   ngOnInit(): void {
     this.getallEquipe();
   }
@@ -20,6 +24,7 @@ export class ListEquipeComponent implements OnInit {
           return this.equipeService.allEquipe ().subscribe (
             ( res: any ) => {
               this.equipe = res;
+              this.totlaRecord=res.length
               console.log ( this.equipe );
               this.equipe.forEach(element => {
                 element.logo = atob(element.logo);

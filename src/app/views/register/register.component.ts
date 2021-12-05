@@ -71,7 +71,9 @@ regitre(){
       this.num=res.num;
       console.log(this.num);
     },
-      (err:any)=>console.log(err),
+      (err:any)=>{console.log(err)
+        alert(err.message)
+      },
      ()=> {
         this.router.navigate(['/codeConfirmation/codeconfirm/'+this.num]);
 

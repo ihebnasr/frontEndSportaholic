@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -53,27 +56,33 @@ import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-v
 import { NewCodeComponent } from './codeConfirmation/new-code/new-code.component';
 import { AddResevationComponent } from './reservation/add-resevation/add-resevation.component';
 import { ListResevationComponent } from './reservation/list-resevation/list-resevation.component';
+import {UserProfileComponent} from './users/user-profile/user-profile.component';
+import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
+import {ReservationUserComponent} from './reservation/reservation-user/reservation-user.component';
 
 @NgModule({
-    imports: [
-        FormsModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        AppAsideModule,
-        AppBreadcrumbModule.forRoot(),
-        AppFooterModule,
-        AppHeaderModule,
-        AppSidebarModule,
-        PerfectScrollbarModule,
-        BsDropdownModule.forRoot(),
-        TabsModule.forRoot(),
-        ChartsModule,
-        IconModule,
-        IconSetModule.forRoot(),
-        HttpClientModule,
-        EquipeModule
-    ],
+  imports: [
+    FormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    AppAsideModule,
+    AppBreadcrumbModule.forRoot(),
+    AppFooterModule,
+    AppHeaderModule,
+    AppSidebarModule,
+    PerfectScrollbarModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    ChartsModule,
+    IconModule,
+    IconSetModule.forRoot(),
+    HttpClientModule,
+    EquipeModule,
+    NgxQRCodeModule,
+    NgxPaginationModule,
+    FilterPipeModule
+  ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
@@ -88,15 +97,17 @@ import { ListResevationComponent } from './reservation/list-resevation/list-rese
     ListPartieVUserComponent,
     NewCodeComponent,
     AddResevationComponent,
-
+    UserProfileComponent,
+    ReservationUserComponent
   ],
   providers: [
-    AuthGuardService,
+
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     },
     IconSetService,
+    AuthGuardService,
   ],
   bootstrap: [ AppComponent ]
 })

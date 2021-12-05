@@ -2,32 +2,30 @@
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
               <form>
-                <p class="text-muted">update bloc</p>
-                <span class="input-group-text">nombre Place</span><br>
+                <p class="text-value-lg">Ajouter un bloc de partie</p>
 
                 <div class="input-group mb-3">
 
                   <div class="input-group-prepend">
 
-                    <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                    <span class="input-group-text"> <i class="fa fa-ticket fa-2x"></i></span>
                   </div>
-                  <input type="text"[(ngModel)]="blocPartie.nbr_place" class="form-control" placeholder="nombre de place du bloc"  required>
+                  <input type="number"[(ngModel)]="blocPartie.nbr_place" class="form-control" placeholder="nombre de place du bloc"  required>
                 </div>
-                <span class="input-group-text">prix resrvation</span><br>
                 <div class="input-group mb-3">
 
 
                   <div class="input-group-prepend">
 
-                    <span class="input-group-text"><i class="fa fa-users"></i></span>
+                    <span class="input-group-text"><i class="fa fa-dollar fa-2x"></i></span>
                   </div>
                   <input type="text"[(ngModel)]="blocPartie.prix" class="form-control" placeholder="prix de reservation " autocomplete="nbr_Place"required>
                 </div>
-                <button type="button"(click)="updateBlocPartie()" class="btn btn-block btn-success">update bloc</button>
+                <button type="button"(click)="updateBlocPartie()" class="btn text-value-lg btn-success">update bloc</button>
               </form>
             </div>
 

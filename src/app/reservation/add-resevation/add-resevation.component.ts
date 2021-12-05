@@ -14,11 +14,12 @@ import {ReservationService} from '../../Service/reservation.service';
   styleUrls: ['./add-resevation.component.scss']
 })
 export class AddResevationComponent implements OnInit {
-  user=new SignUpModel();
+  user:any;
   partie:any;
   bloc:any;
   time:any;
   reservation:any;
+  isShown:boolean=false
   constructor(private route:Router,private reservationService:ReservationService, private partieService:PartieService, private userService:UserService, private blocPartieService:BlocPartieService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,7 +32,15 @@ export class AddResevationComponent implements OnInit {
         this.user=res
         this.user.image=atob(this.user.image)
         console.log(this.user)
+        let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
+        if(index===0){
+          this.isShown=true
+        }else {
+          this.isShown=false
+        }
+        console.log(this.isShown)
       }
+
     )
   }
   getPartieId(id){

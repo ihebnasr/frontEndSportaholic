@@ -6,27 +6,28 @@
             <div class="card mx-4">
               <div class="card-body p-4">
                 <form>
-                  <p class="text-muted">Create Equipe</p>
+                  <p class="text-value-lg ">Créer Equipe</p>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-drivers-license "></i></span>
+                      <span class="input-group-text"> <i class="fa fa-drivers-license fa-2x"></i></span>
                     </div>
-                    <input type="text"[(ngModel)]="equipe.nomEquipe" class="form-control" placeholder="nomEquipe" autocomplete="nomEquipe" required>
+                    <input type="text"[(ngModel)]="equipe.nomEquipe" class="form-control" placeholder="Nom d'équipe" autocomplete="nomEquipe" required>
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-user"></i></span>
+                      <span class="input-group-text"><i class="fa fa-futbol-o fa-2x"></i></span>
                     </div>
-                    <input type="text"[(ngModel)]="equipe.abrviation" class="form-control" placeholder="abriviation" autocomplete="abrviation" required>
+                    <input type="text"[(ngModel)]="equipe.abrviation" class="form-control" placeholder="Abréviation" autocomplete="abrviation" required>
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-file-photo-o "></i> </span>
+                      <span class="input-group-text"><i class="fa fa-file-photo-o fa-2x"></i> </span> <label class="text-value-lg">Logo d'équipe</label>
+
                     </div>
-                    <input #img (change)="uploadImage(img)" type="file"  title="logo" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
+                    <input #img (change)="uploadImage(img)"  class="form-control-file text-value-lg text-secondary" type="file"  title="logo" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="file-input" name="file-input">
 
                   </div>
-                  <button type="button"(click)="addEquipe()" class="btn btn-block btn-success">add equipe</button>
+                  <button type="button"(click)="addEquipe()" class="btn btn-block btn-success text-value-lg">add equipe</button>
                 </form>
               </div>
 
