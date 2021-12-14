@@ -12,14 +12,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-drivers-license fa-2x "></i></span>
                   </div>
-                  <input  #name="ngModel" type="text"[(ngModel)]="signup.cin" class="form-control" placeholder="N°CIN" autocomplete="username" required>
-                  <div *ngIf="signup.cin.invalid && (signup.cin.dirty || signup.cin.touched)"
-                       class="alert">
-
-                    <div *ngIf="signup.cin.errors">
-                      Name is required.
-                    </div>
-                </div>
+                  <input  #name="ngModel" type="text"[(ngModel)]="signup.cin" class="form-control" placeholder="N°CIN" autocomplete="N°CIN" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -112,7 +105,11 @@
                 </select>
 
               </div>
+                <div *ngIf="isShown===true" class="alert alert-danger text-value-lg">
+                  <strong>{{message}}</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="isShown=false">x</button>
 
+                </div>
                 <button type="submit"(click)="regitre()" class="btn btn-block btn-success text-value-lg ">Créer compte </button>
               </form>
             </div>

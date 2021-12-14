@@ -19,34 +19,21 @@
                                                       itemsPerPage: 5 ,
                                                       currentPage: page,
                                                       totalItems: totlaRecord } | filterBy : equipeFilter">
-       <!-- <td class="text-center">
-       <td class="text-center">
-          <div class="avatar">
-            <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-            <span class="avatar-status badge-success"></span>
-          <img src="{{e.logo}}" class="img-avatar" >
-          </div>
-        </td>-->
+
         <td>
 
           <div><a routerLink="/equipes/updateEquipe/{{e.id}}" >{{e.nomEquipe}}</a></div>
 
-          <!--<div class="small text-muted">
-             <span>New</span> | Registered: Jan 1, 2015
-           </div>-->
+
         </td>
-      <!--  <td class="text-center">
-          <i class="flag-icon flag-icon-us h4 mb-0" title="us" id="us"></i>
-        </td>-->
+
         <td>
           <div class="clearfix">
             <div class="float-left">
               {{e.abrviation}}
             </div>
           </div>
-        <!--<div class="progress progress-xs">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>-->
+
         </td>
 
         <td>
@@ -55,22 +42,6 @@
           </div>
         </td>
 
-       <!-- <td >
-          <div><a routerLink="/users/updateUser/{{user.username}}" >  {{user.username}}</a> </div>
-        </td>
-        <td>
-          <div>{{user.numTel}}</div>
-
-
-        </td>
-        <td >
-          <div>{{user.type}}</div>
-         </td>
-        <td>
-
-              <div>{{user.situation}}</div>
-
-        </td>-->
       </tr>
     </tbody>
   </table>

@@ -13,9 +13,12 @@ export class CategorieService {
     return this.httpClient.get(URL+"getAll",this.httpOptions)
   }
   getCate(id){
-    return this.httpClient.get(URL+"getCate"+id,this.httpOptions)
+    return this.httpClient.get(URL+"getCate/"+id,this.httpOptions)
   }
   addCate(categorie){
     return this.httpClient.post(URL+"new",categorie,this.httpOptions)
+  }
+  updateCate(id,categorie){
+    return this.httpClient.put(URL+"updateCate/"+id,categorie,this.httpOptions)
   }
 }

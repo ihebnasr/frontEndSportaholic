@@ -23,9 +23,14 @@
                   </div>
                   <div class="input-group mb-4">
 
-                    <p class="text-danger  ">{{message}}</p>
+                    <div *ngIf="isShown===true" class="alert alert-danger text-value-lg">
+                      <strong>{{message}}</strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="isShown=false">x</button>
+
+                    </div>
 
                   </div>
+
                   <div class="row">
                     <div class="col-3">
                       <button type="button"(click)="login()" class="btn text-value-lg btn-primary px-6">Login</button>

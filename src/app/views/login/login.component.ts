@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginModel } from '../../modele/login.model';
 import { LoginService } from '../../Service/login.service';
 import {pipe} from 'rxjs';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit{
   token:any;
   user:any;
   message:any;
+  isShown:boolean=false
  constructor(private loginService:LoginService, private router: Router){}
  ngOnInit(): void {
     if (localStorage.getItem('token')!==undefined){
@@ -39,13 +41,17 @@ export class LoginComponent implements OnInit{
             this.token=res.token;
 
     },
-    (err: any)=>{console.log(err)
-      this.message="Username or password incorrect"
+        (err:HttpErrorResponse)=>{console.log(err)
+          this.isShown=true
+          console.log(this.isShown)
+          this.message="Votre Nom d'utilisateur où mot de passe est incorrecte";
+
     },
     ()=>{
       if (this.user.situation!=='enabled'){
-        alert("vous avez été bloqué contacter le service client")
-        this.router.navigate(['/login'])
+        this.isShown=true
+        console.log(this.isShown)
+        this.message="vous avez été bloqué contacter le service client";
       }else{
       localStorage.setItem("token",this.token);
       localStorage.setItem("id",this.user.id)

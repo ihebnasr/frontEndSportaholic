@@ -4,6 +4,8 @@ import { EquipeModel } from '../../modele/Equipe.model';
 import { SignUpModel } from '../../modele/SingUp.mode';
 import { EquipeService } from '../../Service/equipe.service';
 import { LoginService } from '../../Service/login.service';
+import {getErrorMessage} from 'codelyzer/templateAccessibilityElementsContentRule';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +19,8 @@ export class RegisterComponent {
   image:any;
   imageCIn:any
   num:any;
+  message:any;
+  isShown:boolean=false
   constructor(private loginService:LoginService, private router: Router, private equipeService:EquipeService ) { }
   ngOnInit(): void {
     this.getEquipe();
@@ -37,7 +41,7 @@ export class RegisterComponent {
   }
   onChange(newValue) {
     console.log(newValue);
-    this.signup.type = newValue;
+    this.signup.type = newValue.target.value;
 }
 uploadImage(image){
   let reader = new FileReader();
@@ -71,8 +75,9 @@ regitre(){
       this.num=res.num;
       console.log(this.num);
     },
-      (err:any)=>{console.log(err)
-        alert(err.message)
+      (err:HttpErrorResponse)=>{console.log(err)
+        this.isShown=true
+       this.message=err.error.message;
       },
      ()=> {
         this.router.navigate(['/codeConfirmation/codeconfirm/'+this.num]);

@@ -65,7 +65,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     data: {
       title: 'reservation partie'
-    }
+    },canActivate:[AuthGuardService]
   },
   {
     path: 'reservation/mesRservations',
@@ -73,7 +73,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     data: {
       title: 'mes reservations '
-    }
+    },canActivate:[AuthGuardService]
   },
   {
     path: 'users/userProfile',
@@ -81,7 +81,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     data: {
       title: 'User profile'
-    }
+    },canActivate:[AuthGuardService]
   },
   {
     path: 'login',
@@ -110,7 +110,7 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     data: {
       title: 'dashboard'
-    },
+    },canActivate:[AuthGuardService],
     children: [
 
       {
@@ -150,8 +150,12 @@ export const routes: Routes = [
         path: 'reservation',
         loadChildren : () => import('./reservation/reservation.module').then(m => m.ReservationModule)
 
-      }
+      },
+      {
+        path: 'categorie',
+        loadChildren : () => import('./categorie/categorier-module.module').then(m => m.CategorierModuleModule)
 
+      }
     ]
   },
   { path: '**', component: P404Component }

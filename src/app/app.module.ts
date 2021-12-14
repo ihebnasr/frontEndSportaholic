@@ -55,10 +55,10 @@ import {ListPartieUserComponent} from './Partie/list-partie-user/list-partie-use
 import {ListPartieVUserComponent} from './Partie/list-partie-vuser/list-partie-vuser.component';
 import { NewCodeComponent } from './codeConfirmation/new-code/new-code.component';
 import { AddResevationComponent } from './reservation/add-resevation/add-resevation.component';
-import { ListResevationComponent } from './reservation/list-resevation/list-resevation.component';
 import {UserProfileComponent} from './users/user-profile/user-profile.component';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 import {ReservationUserComponent} from './reservation/reservation-user/reservation-user.component';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 @NgModule({
   imports: [
@@ -81,7 +81,8 @@ import {ReservationUserComponent} from './reservation/reservation-user/reservati
     EquipeModule,
     NgxQRCodeModule,
     NgxPaginationModule,
-    FilterPipeModule
+    FilterPipeModule,
+    Ng2PageScrollModule
   ],
   declarations: [
     AppComponent,
@@ -98,7 +99,8 @@ import {ReservationUserComponent} from './reservation/reservation-user/reservati
     NewCodeComponent,
     AddResevationComponent,
     UserProfileComponent,
-    ReservationUserComponent
+    ReservationUserComponent,
+
   ],
   providers: [
 

@@ -1,0 +1,38 @@
+<div class=" input-group">
+  <div class="form-outline">
+    <input type="text" class="form-group" placeholder="Nom d'équipe..." [(ngModel)]="CateFilter.nom"><br>
+  </div></div>
+<table class="table table-responsive-sm text-value-lg table-active">
+  <thead class="thead-dark ">
+  <tr>
+    <!--  <th class="text-center"><i class="icon-people"></i></th>-->
+    <!-- <th class="text-center"><i class="icon-people"></i></th>-->
+    <th>Nom Categorie</th>
+
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="text-value-lg" *ngFor= "let c of categroie | paginate:{ id: 'foo',
+                                                      itemsPerPage: 5 ,
+                                                      currentPage: page,
+                                                      totalItems: totlaRecord } | filterBy : CateFilter">
+
+    <td>
+
+      <div><a routerLink="/categorie/updateCategorie/{{c.id}}" >{{c.nom}}</a></div>
+
+
+    </td>
+
+
+
+
+  </tr>
+  </tbody>
+</table>
+<div class="text-value-lg d-flex align-items-center" >
+  <pagination-controls class="center-block" id="foo" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+</div>
+

@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit {
   qrCodeValue:any
   carte=new CarteModele();
   age:any;
+  isShown:boolean=false
   ngOnInit(): void {
   this.User();
   }
@@ -46,6 +47,13 @@ export class UserProfileComponent implements OnInit {
         this.user.image = atob(this.user.image);
         this.user.equipe.logo = atob(this.user.equipe.logo);
         this.user.imageCIn = atob(this.user.imageCIn);
+        let index = this.user.roles.findIndex(x => x.roleName === "ROLE_ADMIN")
+        if(index===0){
+          this.isShown=true
+        }else {
+          this.isShown=false
+        }
+        console.log(this.isShown)
 
 
         var timeDiff = Math.abs(Date.now() - new Date(this.user.dateNais).getTime());

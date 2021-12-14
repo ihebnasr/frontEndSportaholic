@@ -16,6 +16,8 @@ export class ListPartieVUserComponent implements OnInit {
   parties:any={};
   bloc=new BlocModel();
   isShown:boolean=false
+  totlaRecord: string;
+  page:number=1;
   constructor(private partieService:PartieService, private userService:UserService,private route:Router, private blocService:BlocService) { }
 
   ngOnInit(): void {
@@ -72,5 +74,6 @@ export class ListPartieVUserComponent implements OnInit {
       }
     )
   }
-
+  onActivate(event) {
+    window.scroll(0,500);}
 }

@@ -1,7 +1,7 @@
 <label class="form-label"><h2>chercher reservation</h2> </label>
 <div class="input-group">
     <div class="form-outline">
-      <input type="text"[(ngModel)]="username" class="form-control text-value-lg" placeholder="Nom d'utilisateur" autocomplete="username" required>
+      <input type="text"[(ngModel)]="userFiltre.username"  class="form-control text-value-lg" placeholder="Nom d'utilisateur" autocomplete="username" required>
     </div>
   <button (click)="getResUser()" type="button" class="btn btn-primary">
     <i class="fa fa-search"></i>
@@ -22,7 +22,10 @@
   </tr>
   </thead>
   <tbody>
-  <tr class="text-value-lg" *ngFor= "let r of reservations ">
+  <tr class="text-value-lg" *ngFor= "let r of reservations | paginate:{ id: 'foo',
+                                                      itemsPerPage: 5 ,
+                                                      currentPage: page,
+                                                      totalItems: totlaRecord } ">
     <!-- <td class="text-center">
     <td class="text-center">
        <div class="avatar">
@@ -78,3 +81,6 @@
   </tbody>
 </table>
 
+<div class="text-value-lg d-flex align-items-center">
+  <pagination-controls class="center-block" id="foo" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+</div>

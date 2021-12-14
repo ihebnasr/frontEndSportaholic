@@ -6,7 +6,7 @@
           <div class="card mx-4">
             <div class="card-body p-4">
               <form>
-                <p class="text-muted">Modifier carte d'équipe</p>
+                <p class="text-value-lg">Modifier carte d'équipe</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-drivers-license fa-2x"></i></span>
@@ -22,16 +22,7 @@
 
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-list fa-2x"></i></span>
-                  </div>
-                  <select  (change)="onChangeEquipe($event)">
-                    <option value="" disabled selected>Selecte l'equipe</option>
-                    <option  *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
-                  </select>
 
-                </div>
                 <button type="button"(click)="updatecarte()" class="btn  btn-success text-value-lg center-block">Modefier carte</button>
               </form>
             </div>

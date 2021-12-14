@@ -5,6 +5,7 @@ import {EquipeService} from '../../Service/equipe.service';
 import {PartieModele} from '../../modele/partie.modele';
 import {Router} from '@angular/router';
 import {CategorieService} from '../../Service/categorie.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-add-partie',
@@ -19,6 +20,8 @@ export class AddPartieComponent implements OnInit {
   categroie:any;
   idEL:any;
   idEV:any;
+  isShown:boolean=false
+  message:any
   constructor(private categorieService:CategorieService,private stadeService:StadeService ,private equipeService:EquipeService,private partieService:PartieService,private router:Router) { }
 
   ngOnInit(): void {
@@ -75,13 +78,14 @@ export class AddPartieComponent implements OnInit {
 
   }
   addPartie(){
-    if(this.idEL===this.idEV){
-      alert("change l'equipe locaux ou equipe visiteur")
-    }else {
+
     return this.partieService.addPartie(this.partie,this.idStade).subscribe(
       (res:any)=>{
         console.log(this.partie)
-      },error => console.log(error),
+      },(error:HttpErrorResponse) => {console.log(error)
+        this.isShown=true
+        this.message=error.error.message;
+      },
       () => {
         this.router.navigate(['/partie/listPartie'])
       }
@@ -89,6 +93,6 @@ export class AddPartieComponent implements OnInit {
     )
 
   }
-  }
+
 
 }

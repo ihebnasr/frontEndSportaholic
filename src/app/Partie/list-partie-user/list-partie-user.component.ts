@@ -13,6 +13,8 @@ export class ListPartieUserComponent implements OnInit {
   user:any;
   parties:any={};
   isShown : boolean=false
+  totlaRecord: string;
+  page:number=1;
   constructor(private partieService:PartieService, private userService:UserService, private route:Router) { }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class ListPartieUserComponent implements OnInit {
     this.partieService.getPartieUser().subscribe(
       (res:any)=>{
         console.log(res)
+        this.totlaRecord=res.length
         this.parties=res
         this.parties.forEach(element => {
           element.time=element.date.substring(11,16)
@@ -54,4 +57,6 @@ export class ListPartieUserComponent implements OnInit {
     this.route.navigate(['/']);
 
   }
+  onActivate(event) {
+    window.scroll(0,500);}
 }

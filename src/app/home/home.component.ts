@@ -13,6 +13,8 @@ import {time} from 'html2canvas/dist/types/css/types/time';
 })
 export class HomeComponent implements OnInit {
   parties:any={};
+  totlaRecord: string;
+  page:number=1;
   constructor(private partieService:PartieService) { }
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
     (res:any)=>{
       console.log(res)
       this.parties=res
+      this.totlaRecord=res.length
       this.parties.forEach(element => {
         element.time=element.date.substring(11,16)
         element.date=element.date.substring(0,10)
@@ -32,4 +35,10 @@ export class HomeComponent implements OnInit {
       })
     });
   }
+  onActivate(event) {
+    window.scroll(0,1300);}
+
+  onActivateApropos(event) {
+    window.scroll(0,700);}
+
 }

@@ -74,6 +74,22 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
+    name: 'Categorie Partie'
+  },
+  {
+    name: 'Liste des categories',
+    url: '/categorie/allCategorie',
+    icon: 'fa fa-futbol-o'
+
+  },
+  {
+    name: 'Ajouter categorie',
+    url: '/categorie/addCategorie',
+    icon: 'fa fa-futbol-o'
+
+  },
+  {
+    title: true,
     name: 'Partie'
   },
   {

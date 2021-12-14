@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ReservationRoutingModule } from './reservation-routing.module';
 import {ListResevationComponent} from './list-resevation/list-resevation.component';
 import {FormsModule} from '@angular/forms';
+import {FilterPipeModule} from 'ngx-filter-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import {FormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     ReservationRoutingModule,
-    FormsModule
+    FormsModule,
+    FilterPipeModule,
+    NgxPaginationModule
   ]
 })
 export class ReservationModule { }

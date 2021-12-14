@@ -1,5 +1,5 @@
 <form>
-<div id="card"  class="card container">
+<div id="card"  class="card container tg-contentbox">
   <div  class="card-body">
     <div class="quote-box2 text-center ">
       <h2> <i class="fa fa-navicon "></i> categorie :<br> <select  (change)="onChangeCategorie($event)">
@@ -33,6 +33,11 @@
           <option  *ngFor="let e of equipe" [value]="e.id">{{e.nomEquipe}}</option>
         </select></h4>
     </div>
+  </div>
+  <div *ngIf="isShown===true" class="alert alert-danger text-value-lg">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="isShown=false">x</button>
+
   </div>
   <button type="button"(click)="addPartie()" class="btn btn-block btn-success text-value-lg">Ajouter partie </button>
 </div>
