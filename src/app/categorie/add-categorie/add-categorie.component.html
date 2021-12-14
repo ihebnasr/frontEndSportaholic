@@ -1,0 +1,27 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <p class="text-value-lg ">Créer Categorie</p>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-futbol-o fa-2x"></i></span>
+                  </div>
+                  <input type="text"[(ngModel)]="categorie.nom" class="form-control" placeholder="Abréviation" autocomplete="abrviation" required>
+                </div>
+
+                <button type="button"(click)="addCate()" class="btn btn-block btn-success text-value-lg">Créer Categorie</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
